@@ -157,6 +157,26 @@
     margin-top: -15px;
 }
 
+/* Span tags with icon images */
+.charsheet .rti span.iconRogueTrader {
+    height: 24px;
+    width: 50px;
+	background-image: url(https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/refs/heads/main/images/icons/General/rogue-trader.png);
+	background-size: cover;
+    bottom: -13px;
+    position: relative;
+    margin-top: -15px;
+}
+.charsheet .rti span.iconBoltShell {
+    height: 24px;
+    width: 24px;
+	background-image: url(https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/refs/heads/main/images/icons/General/Bullet.png);
+	background-size: cover;
+    bottom: -10px;
+    position: relative;
+    margin-top: -15px;
+}
+
 /* Header tags H1 H2 H3 */{}
 .charsheet .rti h1,
 .charsheet .rti h2,
