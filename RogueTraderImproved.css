@@ -515,6 +515,34 @@
     display: inline-block;
 }
 
+/* Background Transparencies for Weapons */
+.charsheet .rti .weapontypeToggle[value="Thrown"] ~ div.quickborder {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/Grenade-faded.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: 20%;
+}
+.charsheet .rti .weapontypeToggle[value="Pistol"] ~ div.quickborder {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/bolter-mkv-02-faded.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: 30%;
+}
+.charsheet .rti .weapontypeToggle[value="Basic"] ~ div.quickborder {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/imperial-lasgun-faded.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: 70%;
+}
+.charsheet .rti .weapontypeToggle[value="Heavy"] ~ div.quickborder {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/Heavy-Support-%5BBattlefield-Role%5D-faded.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: 50%;
+}
+.charsheet .rti .weapontypeToggle[value="Melee"] ~ div.quickborder {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/sword-01-faded.svg?sanitize=true");
+	transform: rotate(90deg);
+	background-repeat: no-repeat;
+    background-size: contain;
+}
+
 /* Disabled readonly fields */{}
 .charsheet .rti input[disabled],
 .charsheet .rti select[disabled],

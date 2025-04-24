@@ -67,18 +67,18 @@
      id="polygon4"
      style="fill:none"
      transform="translate(0,-100)"
-	fill-opacity="0.35"	 />
+	fill-opacity="0.15"	 />
   <path
      class="st1"
      d="m 696.4,-21 c 0,0.5 0.4,1 1,1 0.6,0 1,-0.4 1,-1 0,-0.5 -0.4,-1 -1,-1 -0.6,0 -1,0.4 -1,1 z"
      id="path6"
      inkscape:connector-curvature="0"
      style="fill:#ffffff"
-	 fill-opacity="0.35"/>
+	 fill-opacity="0.15"/>
   <path
      d="M 282.8,0 H 117.2 L 0,117.2 V 282.88 L 117.2,400 H 282.88 L 400,282.8 V 117.2 Z m 36.32,245.44 -30.4,35.12 21.36,3.92 -53.6,19.44 0.24,-0.32 -0.24,0.08 v 0.24 h -99.6 -13.44 -7.92 l -57.04,-89.68 47.84,33.12 -35.52,-94.24 49.12,51.36 -7.68,-109.28 57.52,87.76 3.2,-51.36 16.8,45.52 L 237.6,69.84 V 190.8 l 25.84,-35.12 -3.84,44.88 65.12,-68.16 -47.04,130.64 z"
      id="path8"
      inkscape:connector-curvature="0"
      style="stroke-width:0.80000001"
-	 fill-opacity="0.35" />
+	 fill-opacity="0.15" />
 </svg>
