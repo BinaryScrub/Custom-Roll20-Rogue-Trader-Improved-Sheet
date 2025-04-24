@@ -539,7 +539,7 @@
 .charsheet .rti .weapontypeToggle[value="Melee"] ~ div.quickborder {
 	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/80ed7d32302a857748b364840c702133f548e1e5/images/icons/General/sword-01-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100%;
 }
 
 /* Disabled readonly fields */{}
