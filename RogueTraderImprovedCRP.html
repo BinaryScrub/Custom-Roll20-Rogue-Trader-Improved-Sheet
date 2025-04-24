@@ -1093,7 +1093,7 @@
         <h2>Ranged Weapons &#11216;</h2>
         <fieldset class="repeating_rangedweapons">
             <div class="quickborder">
-                <input name="attr_Rangedweaponname" style="width:61.5%" type="text" placeholder="Weapon Name" title="Weapon Name"/>
+                <input name="attr_Rangedweaponname" style="width:61.5%; font-weight:bold" type="text" placeholder="Weapon Name" title="Weapon Name"/>
                 <div class="spacing" style="width:0.5%"></div>
                 
 				
@@ -1101,7 +1101,12 @@
                 value="@{gmroll}&{template:custom} {{name=@{character_name} attacks with @{Rangedweaponname}}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (@{gunaimbonus}) + (@{gunrangebonus}) + (@{rangedweaponmod}) + (@{gunactionbonus}) + (?{Modifier|0}))]] - [[@{gundice}]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}">
                     <label>Attack!</label></button>-->
                 <!-- CRP testing kept here for testing -->
-                <button style="width:14%" type="action" name="act_guncrp" title="Rolls Ballistic Skill + Modifiers">Attack!</button>
+                <input type="hidden" name="attr_activeammo" class="ammotoggle"/>
+				<button style="width:14%" type="action" class="ammoElement1" name="act_guncrp" title="(Ammo 1) Rolls Ballistic Skill + Modifiers">Attack!</button>
+				<button style="width:14%" type="action" class="ammoElement2" name="act_guncrp2" title="(Ammo 2) Rolls Ballistic Skill + Modifiers">Attack!</button>
+				<button style="width:14%" type="action" class="ammoElement3" name="act_guncrp3" title="(Ammo 3) Rolls Ballistic Skill + Modifiers">Attack!</button>
+				<button style="width:14%" type="action" class="ammoElement4" name="act_guncrp4" title="(Ammo 4) Rolls Ballistic Skill + Modifiers">Attack!</button>
+				<button style="width:14%" type="action" class="ammoElement5" name="act_guncrp5" title="(Ammo 5) Rolls Ballistic Skill + Modifiers">Attack!</button>
                 <input type="hidden" name="attr_gunroll" value="@{gmroll}&{template:custom} {{name=@{character_name} attacks with @{repeating_rangedweapons_Rangedweaponname}}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (@{repeating_rangedweapons_gunaimbonus}) + (@{repeating_rangedweapons_gunrangebonus}) + (@{repeating_rangedweapons_rangedweaponmod}) + (@{repeating_rangedweapons_gunactionbonusvalue}) + (?{Modifier|0}))]] - [[@{repeating_rangedweapons_gundice}]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}"/>
                 
 				
@@ -1174,9 +1179,18 @@
 				<input type="hidden" name="attr_Rangedweaponatkmodsemi" value="0"/>
 				<input type="hidden" name="attr_Rangedweaponatkmodfull" value="0"/>
 			<div class="hbody quickborder">
-				<label style="width:100%">- Basic Weapon Properties -</label>
-				<!-- end of line -->
-                <label style="width:8%">Craft</label>
+				<label style="width:26.5%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);">Weapon Qualities</label>
+                <div class="spacing" style="width:1%"></div>
+				<label style="width:8%">Class</label>
+				<select name="attr_Rangedweaponclass" style="width:16%">
+                    <option disabled style="background:gray;font-weight:bold;color:white;">Class</option>
+                    <option value="Thrown">Thrown</option>
+                    <option value="Pistol">Pistol</option>
+                    <option value="Basic" selected>Basic</option>
+                    <option value="Heavy">Heavy</option>
+                </select>
+				<div class="spacing" style="width:2%"></div>
+				<label style="width:22%">Craftsmanship</label>
 				<select name="attr_Rangedweaponcraft" style="width:18%">
                     <option disabled style="background:gray;font-weight:bold;color:white;">Craftsmanship&nbsp;</option>
                     <option value="Poor">Poor</option>
@@ -1185,15 +1199,7 @@
                     <option value="Best">Best</option>
                 </select>
                 <div class="spacing" style="width:1%"></div>
-				<label style="width:9%">Class</label>
-				<select name="attr_Rangedweaponclass" style="width:16%">
-                    <option disabled style="background:gray;font-weight:bold;color:white;">Class</option>
-                    <option value="Thrown">Thrown</option>
-                    <option value="Pistol">Pistol</option>
-                    <option value="Basic" selected>Basic</option>
-                    <option value="Heavy">Heavy</option>
-                </select>
-				<div class="spacing" style="width:1%"></div>
+				
 				<label style="width:18%">Malfunction</label>
 				<select name="attr_gundice" style="width:29%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Jam Chance</option>
@@ -1249,15 +1255,31 @@
             </div><!--hbody closing-->
 				<!-- end of line -->
                 <!-- Ammunition Management -->
+				<!--<div class="customSelect" style="width:7%">
+					<span class="customSelect" name="attr_activeammo"></span>
+					<input type="checkbox" name="attr_activeammo_toggle" value="1">
+					<div class="customSelect-options">
+						<button type="action" class="customSelect-opt1" name="act_set_activeammo_1"><span class="iconBoltShell1-1"/></button>
+						<button type="action" class="customSelect-opt2" name="act_set_activeammo_2"><span class="iconBoltShell2-1"/></button>
+						<button type="action" class="customSelect-opt3" name="act_set_activeammo_3"><span class="iconBoltShell3-1"/></button>
+						<button type="action" class="customSelect-opt4" name="act_set_activeammo_4"><span class="iconBoltShell4-1"/></button>
+						<button type="action" class="customSelect-opt5" name="act_set_activeammo_5"><span class="iconBoltShell5-1"/></button>
+					</div>
+				</div>
+				
 				<select name="attr_activeammo" class="ammo-choice" style="width:7%">
-					<option value="1" selected>1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-				</select>
-				<label style="width:2%"></label>
-				<input name="attr_activeammoname" style="width:44%" type="text" disabled/>
+					<option value="1" selected><span class="iconBoltShell1"/></option>
+					<option value="2"><span class="iconBoltShell2"/></option>
+					<option value="3"><span class="iconBoltShell3"/></option>
+					<option value="4"><span class="iconBoltShell4"/></option>
+					<option value="5"><span class="iconBoltShell5"/></option>
+				</select>-->
+				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
+				<input name="attr_Ammo1name" class="ammoElement1" style="width:53%" type="text" title="Ammunition Type 1"/>
+				<input name="attr_Ammo2name" class="ammoElement2" style="width:53%" type="text" title="Ammunition Type 2"/>
+				<input name="attr_Ammo3name" class="ammoElement3" style="width:53%" type="text" title="Ammunition Type 3"/>
+				<input name="attr_Ammo4name" class="ammoElement4" style="width:53%" type="text" title="Ammunition Type 4"/>
+				<input name="attr_Ammo5name" class="ammoElement5" style="width:53%" type="text" title="Ammunition Type 5"/>
 				<label style="width:2%"></label>
                 <!--<button name="roll_RangedReload" type="roll" style="width:14%" title="Rolls Weapon Damage"
                 value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
@@ -1277,19 +1299,42 @@
 				<label style="width:1%"></label>
 				<button style="width:14%" type="action" name="act_gunreload" title="Rolls Ballistic Skill + Modifiers">Reload</button>
                 <!--<input type="hidden" name="attr_gunroll001"/>-->
-				<span class="iconBoltShell BoltShell1"/>
+				<!-- end of line -->
+				<!-- end of line -->
+				<!-- end of line -->
+				<input type="checkbox" style="width:6%" name="attr_activeammo" value="1" class="boltShellCheck boltShellCheck-opt0" title="Use Ammo Type 1"></input>
+				<div class="spacing" style="width:0.5%"></div>
+				<input type="checkbox" style="width:6%" name="attr_activeammo" value="2" class="boltShellCheck boltShellCheck-opt1" title="Use Ammo Type 2"></input>
+				<div class="spacing" style="width:0.5%"></div>
+				<input type="checkbox" style="width:6%" name="attr_activeammo" value="3" class="boltShellCheck boltShellCheck-opt2" title="Use Ammo Type 3"></input>
+				<div class="spacing" style="width:0.5%"></div>
+				<input type="checkbox" style="width:6%" name="attr_activeammo" value="4" class="boltShellCheck boltShellCheck-opt3" title="Use Ammo Type 4"></input>
+				<div class="spacing" style="width:0.5%"></div>
+				<input type="checkbox" style="width:6%" name="attr_activeammo" value="5" class="boltShellCheck boltShellCheck-opt4" title="Use Ammo Type 5"></input>
+				<div class="spacing" style="width:5%"></div>
 				<label style="width:7%">Clip</label>
-                <input name="attr_Rangedweaponclip" style="width:8%" type="number" value="0" title="Current ammunition in the loaded magazine"/>
+				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
+                <input name="attr_Ammo1clipsize" style="width:8%" type="number" class="ammoElement1" value="0" title="Current ammunition in the loaded magazine"/>
+				<input name="attr_Ammo2clipsize" style="width:8%" type="number" class="ammoElement2" value="0" title="Current ammunition in the loaded magazine"/>
+				<input name="attr_Ammo3clipsize" style="width:8%" type="number" class="ammoElement3" value="0" title="Current ammunition in the loaded magazine"/>
+				<input name="attr_Ammo4clipsize" style="width:8%" type="number" class="ammoElement4" value="0" title="Current ammunition in the loaded magazine"/>
+				<input name="attr_Ammo5clipsize" style="width:8%" type="number" class="ammoElement5" value="0" title="Current ammunition in the loaded magazine"/>
 				<div class="spacing" style="width:1%"></div>
-				<span class="iconBoltShell"/>
-				<span class="iconBoltShell"/>
-				<span class="iconBoltShell"/>
-				<span class="iconBoltShell"/>
 				<label style="width:2%">/</label>
-                <input name="attr_Rangedweaponclipmax" style="width:8%" type="number" value="0" title="Maximum ammunition in the loaded magazine"/>
+				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
+                <input name="attr_Ammo1clipmax" style="width:8%" type="number" class="ammoElement1" value="0" title="Maximum ammunition in the loaded magazine"/>
+				<input name="attr_Ammo2clipmax" style="width:8%" type="number" class="ammoElement2" value="0" title="Maximum ammunition in the loaded magazine"/>
+				<input name="attr_Ammo3clipmax" style="width:8%" type="number" class="ammoElement3" value="0" title="Maximum ammunition in the loaded magazine"/>
+				<input name="attr_Ammo4clipmax" style="width:8%" type="number" class="ammoElement4" value="0" title="Maximum ammunition in the loaded magazine"/>
+				<input name="attr_Ammo5clipmax" style="width:8%" type="number" class="ammoElement5" value="0" title="Maximum ammunition in the loaded magazine"/>
 				<label style="width:2%"></label>
 				<label style="width:19%">Spare Ammo</label>
-				<input name="attr_Rangedspareammo" style="width:12%" type="number" value="0" title="The amount of spare ammunition being carried. Standard is two additional magazines, so 2 x Magazine Size"/>
+				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
+				<input name="attr_Ammo1totalrounds" style="width:12%" type="number" class="ammoElement1" value="0" title="The amount of spare ammunition being carried. Standard is two additional magazines, so 2 x Magazine Size"/>
+				<input name="attr_Ammo2totalrounds" style="width:12%" type="number" class="ammoElement2" value="0" title="The amount of spare ammunition being carried. Standard is two additional magazines, so 2 x Magazine Size"/>
+				<input name="attr_Ammo3totalrounds" style="width:12%" type="number" class="ammoElement3" value="0" title="The amount of spare ammunition being carried. Standard is two additional magazines, so 2 x Magazine Size"/>
+				<input name="attr_Ammo4totalrounds" style="width:12%" type="number" class="ammoElement4" value="0" title="The amount of spare ammunition being carried. Standard is two additional magazines, so 2 x Magazine Size"/>
+				<input name="attr_Ammo5totalrounds" style="width:12%" type="number" class="ammoElement5" value="0" title="The amount of spare ammunition being carried. Standard is two additional magazines, so 2 x Magazine Size"/>
 				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hiderangedweaponammo" value="1" class="arrow icon arrow1" title="Hide Ammo Types"></input>
                 <!-- end of line -->
@@ -1297,17 +1342,19 @@
                 <label style="width:100%">- Ammunition Types -</label>
 				<!-- end of line -->
 				<!-- Start of Ammo 1 -->
-				<input name="attr_Ammo1name" style="width:35%" type="text" placeholder="Ammo Type 1" title="Ammunition Type 1"/>
+				<span class="iconBoltShell" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
+				<input name="attr_Ammo1name" style="width:33%" type="text" placeholder="Ammo Type 1" title="Ammunition Type 1"/>
+				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo1clipsize" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo1clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:20%">Total Rounds</label>
+				<label style="width:19%">Spare Ammo</label>
 				<input name="attr_Ammo1totalrounds" style="width:8%" type="number" value="0"/>
-				<div class="spacing" style="width:6%"></div>
+				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo1" value="1" class="arrow icon arrow3" title="Hide Ammo Types"></input>
 				<!-- end of line -->
 				<div class="hbody3">
@@ -1322,17 +1369,19 @@
 				<!-- End of Ammo 1 -->
 				<!-- end of line -->
 				<!-- Start of Ammo 2 -->
-				<input name="attr_Ammo2name" style="width:35%" type="text" placeholder="Ammo Type 2" title="Ammunition Type 2"/>
+				<span class="iconBoltShell1" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
+				<input name="attr_Ammo2name" style="width:33%" type="text" placeholder="Ammo Type 2" title="Ammunition Type 2"/>
+				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo2clipsize" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo2clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:20%">Total Rounds</label>
+				<label style="width:19%">Spare Ammo</label>
 				<input name="attr_Ammo2totalrounds" style="width:8%" type="number" value="0"/>
-				<div class="spacing" style="width:6%"></div>
+				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo2" value="1" class="arrow icon arrow4" title="Hide Ammo Types"></input>
 				<!-- end of line -->
 				<div class="hbody4">
@@ -1347,17 +1396,19 @@
 				<!-- End of Ammo 2 -->
 				<!-- end of line -->
 				<!-- Start of Ammo 3 -->
-				<input name="attr_Ammo3name" style="width:35%" type="text" placeholder="Ammo Type 3" title="Ammunition Type 3"/>
+				<span class="iconBoltShell2" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
+				<input name="attr_Ammo3name" style="width:33%" type="text" placeholder="Ammo Type 3" title="Ammunition Type 3"/>
+				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo3clipsize" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo3clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:20%">Total Rounds</label>
+				<label style="width:19%">Spare Ammo</label>
 				<input name="attr_Ammo3totalrounds" style="width:8%" type="number" value="0"/>
-				<div class="spacing" style="width:6%"></div>
+				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo3" value="1" class="arrow icon arrow5" title="Hide Ammo Types"></input>
 				<!-- end of line -->
 				<div class="hbody5">
@@ -1372,17 +1423,19 @@
 				<!-- End of Ammo 3 -->
 				<!-- end of line -->
 				<!-- Start of Ammo 4 -->
-				<input name="attr_Ammo4name" style="width:35%" type="text" placeholder="Ammo Type 4" title="Ammunition Type 4"/>
+				<span class="iconBoltShell3" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
+				<input name="attr_Ammo4name" style="width:33%" type="text" placeholder="Ammo Type 4" title="Ammunition Type 4"/>
+				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo4clipsize" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo4clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:20%">Total Rounds</label>
+				<label style="width:19%">Spare Ammo</label>
 				<input name="attr_Ammo4totalrounds" style="width:8%" type="number" value="0"/>
-				<div class="spacing" style="width:6%"></div>
+				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo4" value="1" class="arrow icon arrow6" title="Hide Ammo Types"></input>
 				<!-- end of line -->
 				<div class="hbody6">
@@ -1397,17 +1450,19 @@
 				<!-- End of Ammo 4 -->
 				<!-- end of line -->
 				<!-- Start of Ammo 5 -->
-				<input name="attr_Ammo5name" style="width:35%" type="text" placeholder="Ammo Type 5" title="Ammunition Type 5"/>
+				<span class="iconBoltShell4" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
+				<input name="attr_Ammo5name" style="width:33%" type="text" placeholder="Ammo Type 5" title="Ammunition Type 5"/>
+				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo5clipsize" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo5clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:20%">Total Rounds</label>
+				<label style="width:19%">Spare Ammo</label>
 				<input name="attr_Ammo5totalrounds" style="width:8%" type="number" value="0"/>
-				<div class="spacing" style="width:6%"></div>
+				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo5" value="1" class="arrow icon arrow7" title="Hide Ammo Types"></input>
 				<!-- end of line -->
 				<div class="hbody7">
@@ -1428,7 +1483,7 @@
         <h2>Melee Weapons &#9876;</h2>
         <fieldset class="repeating_meleeweapons">
             <div class="quickborder">
-                <input name="attr_meleeweaponname" style="width:61.5%" type="text" placeholder="Weapon Name" title="Weapon Name"/>
+                <input name="attr_meleeweaponname" style="width:61.5%; font-weight:bold" type="text" placeholder="Weapon Name" title="Weapon Name"/>
                 <div class="spacing" style="width:0.5%"></div>
                 <button name="roll_meleeweaponattack" type="roll" style="width:14%" title="Rolls Weapon Skill + Modifiers"
                 value="@{gmroll}&{template:custom} {{name=@{character_name} attacks with @{meleeweaponname}}} {{dosdof=[[(((  ([[(@{WeaponSkill} + (@{meleeaimbonus}) + (@{meleeactionbonus}) + (@{meleeweaponmod}) + (?{Modifier|0}))]] - [[1d100cs1cf101]]) * 100 % 999 % 100  )))]] **Degrees**}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}">
@@ -4786,9 +4841,29 @@ const parseTriggerName = function(string){
   match.shift();
   return match;
 };
-/* --- script for updating current ammo labels --- */
+/* --- script for updating current ammo labels --- 
 on("change:repeating_rangedweapons:activeammo change:repeating_rangedweapon:Ammo1name change:repeating_rangedweapon:Ammo1clipsize change:repeating_rangedweapon:Ammo1clipmax change:repeating_rangedweapon:Ammo1totalrounds change:repeating_rangedweapon:Ammo2name change:repeating_rangedweapon:Ammo2clipsize change:repeating_rangedweapon:Ammo2clipmax change:repeating_rangedweapon:Ammo2totalrounds change:repeating_rangedweapon:Ammo3name change:repeating_rangedweapon:Ammo3clipsize change:repeating_rangedweapon:Ammo3clipmax change:repeating_rangedweapon:Ammo3totalrounds change:repeating_rangedweapon:Ammo4name change:repeating_rangedweapon:Ammo4clipsize change:repeating_rangedweapon:Ammo4clipmax change:repeating_rangedweapon:Ammo4totalrounds change:repeating_rangedweapon:Ammo5name change:repeating_rangedweapon:Ammo5clipsize change:repeating_rangedweapon:Ammo5clipmax change:repeating_rangedweapon:Ammo5totalrounds sheet:opened", function(eventInfo) {
-	getAttrs(["repeating_rangedweapons_activeammo", "repeating_rangedweapon_Ammo1name", "repeating_rangedweapon_Ammo1clipsize", "repeating_rangedweapon_Ammo1clipmax", "repeating_rangedweapon_Ammo1totalrounds", "repeating_rangedweapon_Ammo2name", "repeating_rangedweapon_Ammo2clipsize", "repeating_rangedweapon_Ammo2clipmax", "repeating_rangedweapon_Ammo2totalrounds", "repeating_rangedweapon_Ammo3name", "repeating_rangedweapon_Ammo3clipsize", "repeating_rangedweapon_Ammo3clipmax", "repeating_rangedweapon_Ammo3totalrounds", "repeating_rangedweapon_Ammo4name", "repeating_rangedweapon_Ammo4clipsize", "repeating_rangedweapon_Ammo4clipmax" "repeating_rangedweapon_Ammo4totalrounds", "repeating_rangedweapon_Ammo5name", "repeating_rangedweapon_Ammo5clipsize", "repeating_rangedweapon_Ammo5clipmax", "change:repeating_rangedweapon_Ammo5totalrounds"], function(values) {
+	getAttrs(["repeating_rangedweapons_activeammo",
+	"repeating_rangedweapon_Ammo1name",
+	"repeating_rangedweapon_Ammo1clipsize",
+	"repeating_rangedweapon_Ammo1clipmax",
+	"repeating_rangedweapon_Ammo1totalrounds",
+	"repeating_rangedweapon_Ammo2name",
+	"repeating_rangedweapon_Ammo2clipsize",
+	"repeating_rangedweapon_Ammo2clipmax",
+	"repeating_rangedweapon_Ammo2totalrounds",
+	"repeating_rangedweapon_Ammo3name",
+	"repeating_rangedweapon_Ammo3clipsize",
+	"repeating_rangedweapon_Ammo3clipmax",
+	"repeating_rangedweapon_Ammo3totalrounds",
+	"repeating_rangedweapon_Ammo4name",
+	"repeating_rangedweapon_Ammo4clipsize",
+	"repeating_rangedweapon_Ammo4clipmax"
+	"repeating_rangedweapon_Ammo4totalrounds",
+	"repeating_rangedweapon_Ammo5name",
+	"repeating_rangedweapon_Ammo5clipsize",
+	"repeating_rangedweapon_Ammo5clipmax",
+	"repeating_rangedweapon_Ammo5totalrounds"], function(values) {
 		var myAmmoChoice = parseInt(values["repeating_rangedweapons_activeammo"]);
 		var myAmmoName;
 		var myAmmoClipSize;
@@ -4828,7 +4903,7 @@ on("change:repeating_rangedweapons:activeammo change:repeating_rangedweapon:Ammo
 			repeating_rangedweapons_Rangedspareammo: myAmmoTotalAmmo
 		});
 	});
-});
+});*/
 
 /* --- script for the crp attack macro --- */
 on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {

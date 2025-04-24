@@ -174,8 +174,40 @@
 	background-repeat: no-repeat;
     background-size: cover;
 }
-.charsheet .rti span.BoltShell1 {
-	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/3682fce7973cf50fce0a34268f4f0cad62832cf9/images/icons/General/BoltShell.svg?sanitize=true");
+.charsheet .rti span.iconBoltShell1 {
+	height: 24px;
+    width: 24px;
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellBlue.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+.charsheet .rti span.iconBoltShell2 {
+	height: 24px;
+    width: 24px;
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellGreen.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+.charsheet .rti span.iconBoltShell3 {
+	height: 24px;
+    width: 24px;
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellPurple.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+.charsheet .rti span.iconBoltShell4 {
+	height: 24px;
+    width: 24px;
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellRed.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+.charsheet .rti span.iconBoltShell5 {
+	height: 24px;
+    width: 24px;
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellYellow.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Header tags H1 H2 H3 */{}
@@ -382,57 +414,105 @@
     white-space: nowrap;
 }
 
-/* PSUEDO-SELECT drop-down menu, OPTION tag inside */{}
-.sheet-pseudo-select-test{
-    display:grid;
-    grid-template-columns:[selection-start]auto[selection-end] 1fr;
-    grid-template-rows:repeat(5,1fr) [selection-start]auto[selection-end];
-    grid-gap:5px;
+/* Bolt Shell Checkboxes for Ammo Select */
+.charsheet .rti input[type="checkbox"].boltShellCheck {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-block;
+    height: 24px;
+    box-sizing: border-box;
+    background-color: transparent;
+	border-radius: 4%;
 }
-.sheet-pseudo-select{
-    display:grid;
-    grid-template-columns:1fr;
-    grid-area:selection;
-    min-height:20px;
-    outline:1px solid black;
+.charsheet .rti input[type="checkbox"].boltShellCheck:checked {
+	background-color: rgb(255 182 0 / 17%);
+	outline: solid;
 }
-.sheet-pseudo-select label{
-    position:relative;
-    display:none;
+.charsheet .rti input[type="checkbox"].boltShellCheck-opt0 {
+    background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/3682fce7973cf50fce0a34268f4f0cad62832cf9/images/icons/General/BoltShell.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
 }
-.sheet-pseudo-select:hover label,
-.sheet-pseudo-select .sheet-select-filter[value*="ammo_type_1"] ~ .sheet-ammo_type_1,
-.sheet-pseudo-select .sheet-select-filter[value*="ammo_type_2"] ~ .sheet-ammo_type_2,
-.sheet-pseudo-select .sheet-select-filter[value*="ammo_type_3"] ~ .sheet-ammo_type_3,
-.sheet-pseudo-select .sheet-select-filter[value*="ammo_type_4"] ~ .sheet-ammo_type_4,
-.sheet-pseudo-select .sheet-select-filter[value*="ammo_type_5"] ~ .sheet-ammo_type_5{
-    display:initial;
-	/*display:none;*/
+.charsheet .rti input[type="checkbox"].boltShellCheck-opt1 {
+    background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellBlue.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
 }
-.sheet-pseudo-select label input[type=checkbox]{
-    z-index:2;
-    opacity:0;
-    position:absolute;
+.charsheet .rti input[type="checkbox"].boltShellCheck-opt2 {
+    background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellGreen.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
 }
-.sheet-pseudo-select label *{
-    width:100%;
-    height:100%;
-    display:block;
+.charsheet .rti input[type="checkbox"].boltShellCheck-opt3 {
+    background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellPurple.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
 }
-.sheet-pseudo-select input[type=text]{
-    z-index:-1;
-    background:none;
-    box-shadow:none;
-    border:0px solid transparent;
+.charsheet .rti input[type="checkbox"].boltShellCheck-opt4 {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/6b046bfc17e04854302507b82ac8110d784daa73/images/icons/General/BoltShellRed.svg?sanitize=true");
+	background-repeat: no-repeat;
+    background-size: cover;
 }
-.sheet-pseudo-select span{
-    z-index:-1;
-    background:none;
-    box-shadow:none;
-    border:0px solid transparent;
+/*.charsheet .rti input[type="checkbox"].boltShellCheck:before {
+	content: "{";
+    box-sizing: border-box;
 }
-.sheet-pseudo-select label input[type=checkbox]:checked + span{
-    background-color:blue!important;
+.charsheet .rti input[type="checkbox"].boltShellCheck:checked:before {
+	content: "}";
+}
+.charsheet .rti input[type="checkbox"].boltShellCheck:focus:before {
+    outline: 0;
+}
+.charsheet .rti input[type="checkbox"].boltShellCheck:focus {
+    outline: 0;
+}*/
+
+/* Ranged Weapon Element Display */ {}
+.charsheet .rti button.ammoElement1,
+.charsheet .rti button.ammoElement2,
+.charsheet .rti button.ammoElement3,
+.charsheet .rti button.ammoElement4,
+.charsheet .rti button.ammoElement5,
+.charsheet .rti input[type="text"].ammoElement1,
+.charsheet .rti input[type="text"].ammoElement2,
+.charsheet .rti input[type="text"].ammoElement3,
+.charsheet .rti input[type="text"].ammoElement4,
+.charsheet .rti input[type="text"].ammoElement5,
+.charsheet .rti input[type="number"].ammoElement1,
+.charsheet .rti input[type="number"].ammoElement2,
+.charsheet .rti input[type="number"].ammoElement3,
+.charsheet .rti input[type="number"].ammoElement4,
+.charsheet .rti input[type="number"].ammoElement5 {
+    display: none;
+}
+/*
+.charsheet .rti .talent,
+.charsheet .rti .psykana,
+.charsheet .rti .journal,
+.charsheet .rti .ship,
+.charsheet .rti .npcs,
+.charsheet .rti .config
+*/
+
+.charsheet .rti .ammotoggle[value="1"] ~ button.ammoElement1,
+.charsheet .rti .ammotoggle[value="1"] ~ input[type="text"].ammoElement1,
+.charsheet .rti .ammotoggle[value="1"] ~ input[type="number"].ammoElement1,
+.charsheet .rti .ammotoggle[value="2"] ~ button.ammoElement2,
+.charsheet .rti .ammotoggle[value="2"] ~ input[type="text"].ammoElement2,
+.charsheet .rti .ammotoggle[value="2"] ~ input[type="number"].ammoElement2,
+.charsheet .rti .ammotoggle[value="3"] ~ button.ammoElement3,
+.charsheet .rti .ammotoggle[value="3"] ~ input[type="text"].ammoElement3,
+.charsheet .rti .ammotoggle[value="3"] ~ input[type="number"].ammoElement3,
+.charsheet .rti .ammotoggle[value="4"] ~ button.ammoElement4,
+.charsheet .rti .ammotoggle[value="4"] ~ input[type="text"].ammoElement4,
+.charsheet .rti .ammotoggle[value="4"] ~ input[type="number"].ammoElement4,
+.charsheet .rti .ammotoggle[value="5"] ~ button.ammoElement5,
+.charsheet .rti .ammotoggle[value="5"] ~ input[type="text"].ammoElement5,
+.charsheet .rti .ammotoggle[value="5"] ~ input[type="number"].ammoElement5 {
+/*.charsheet .rti .ammotoggle[value="ship"] ~ div.ship,
+.charsheet .rti .ammotoggle[value="npcs"] ~ div.npcs,
+.charsheet .rti .ammotoggle[value="config"] ~ div.config {-->*/
+    display: inline-block;
 }
 
 /* Disabled readonly fields */{}
@@ -680,6 +760,11 @@
     border: 1px solid #AAAAAA;
     padding: 2px 2px 1px 2px;
     margin-bottom: 3px;
+}
+.charsheet .rti .quickborder1 {
+    border: 1px solid #AAAAAA;
+    padding: 0 2px 0 2px;
+	margin-bottom: 3px;
 }
 .charsheet .rti .armourblock {
     text-align: center;
