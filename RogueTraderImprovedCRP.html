@@ -1112,7 +1112,20 @@
                 
 				
 				<div class="spacing" style="width:0.5%"></div>
-                <button name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
+                <button class="ammoElement1" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                    <label>Damage</label></button>
+				<button class="ammoElement2" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                    <label>Damage</label></button>
+				<button class="ammoElement3" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                    <label>Damage</label></button>
+				<button class="ammoElement4" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                    <label>Damage</label></button>
+				<button class="ammoElement5" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
                 value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
 				<div class="spacing" style="width:0.5%"></div>
