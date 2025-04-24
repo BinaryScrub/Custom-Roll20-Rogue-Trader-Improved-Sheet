@@ -517,28 +517,27 @@
 
 /* Background Transparencies for Weapons */
 .charsheet .rti .weapontypeToggle[value="Thrown"] ~ div.quickborder {
-	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/Grenade-faded.svg?sanitize=true");
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/f1be634017505ea1d392680f6b9615d33033f6f3/images/icons/General/Grenade-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
     background-size: 20%;
 }
 .charsheet .rti .weapontypeToggle[value="Pistol"] ~ div.quickborder {
-	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/bolter-mkv-02-faded.svg?sanitize=true");
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/f1be634017505ea1d392680f6b9615d33033f6f3/images/icons/General/bolter-mkv-02-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
-    background-size: 30%;
+    background-size: 40%;
 }
 .charsheet .rti .weapontypeToggle[value="Basic"] ~ div.quickborder {
-	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/imperial-lasgun-faded.svg?sanitize=true");
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/f1be634017505ea1d392680f6b9615d33033f6f3/images/icons/General/imperial-lasgun-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
     background-size: 70%;
 }
 .charsheet .rti .weapontypeToggle[value="Heavy"] ~ div.quickborder {
-	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/Heavy-Support-%5BBattlefield-Role%5D-faded.svg?sanitize=true");
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/f1be634017505ea1d392680f6b9615d33033f6f3/images/icons/General/Heavy-Support-%5BBattlefield-Role%5D-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
     background-size: 50%;
 }
 .charsheet .rti .weapontypeToggle[value="Melee"] ~ div.quickborder {
-	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/9adac0f6a9b5635993b622f7b364291ec5c58b6a/images/icons/General/sword-01-faded.svg?sanitize=true");
-	transform: rotate(90deg);
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/80ed7d32302a857748b364840c702133f548e1e5/images/icons/General/sword-01-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
     background-size: contain;
 }
