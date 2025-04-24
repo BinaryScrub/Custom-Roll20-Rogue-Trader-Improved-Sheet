@@ -537,7 +537,7 @@
     background-size: 50%;
 }
 .charsheet .rti .weapontypeToggle[value="Melee"] ~ div.quickborder {
-	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/80ed7d32302a857748b364840c702133f548e1e5/images/icons/General/sword-01-faded.svg?sanitize=true");
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/136f712d8fab699c054b47a59fdaac45743f59af/images/icons/General/sword-01-faded%20rotated.svg?sanitize=true");
 	background-repeat: no-repeat;
     background-size: 100%;
 }
