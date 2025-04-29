@@ -1102,30 +1102,25 @@
                 value="@{gmroll}&{template:custom} {{name=@{character_name} attacks with @{Rangedweaponname}}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (@{gunaimbonus}) + (@{gunrangebonus}) + (@{rangedweaponmod}) + (@{gunactionbonus}) + (?{Modifier|0}))]] - [[@{gundice}]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}">
                     <label>Attack!</label></button>-->
                 <!-- CRP testing kept here for testing -->
-                <input type="hidden" name="attr_activeammo" class="ammotoggle"/>
-				<button style="width:14%" type="action" class="ammoElement1" name="act_guncrp" title="(Ammo 1) Rolls Ballistic Skill + Modifiers">Attack!</button>
-				<button style="width:14%" type="action" class="ammoElement2" name="act_guncrp2" title="(Ammo 2) Rolls Ballistic Skill + Modifiers">Attack!</button>
-				<button style="width:14%" type="action" class="ammoElement3" name="act_guncrp3" title="(Ammo 3) Rolls Ballistic Skill + Modifiers">Attack!</button>
-				<button style="width:14%" type="action" class="ammoElement4" name="act_guncrp4" title="(Ammo 4) Rolls Ballistic Skill + Modifiers">Attack!</button>
-				<button style="width:14%" type="action" class="ammoElement5" name="act_guncrp5" title="(Ammo 5) Rolls Ballistic Skill + Modifiers">Attack!</button>
+				<button style="width:14%" type="action" name="act_guncrp" title="(Ammo 1) Rolls Ballistic Skill + Modifiers">Attack!</button>
                 <input type="hidden" name="attr_gunroll" value="@{gmroll}&{template:custom} {{name=@{character_name} attacks with @{repeating_rangedweapons_Rangedweaponname}}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (@{repeating_rangedweapons_gunaimbonus}) + (@{repeating_rangedweapons_gunrangebonus}) + (@{repeating_rangedweapons_rangedweaponmod}) + (@{repeating_rangedweapons_gunactionbonusvalue}) + (?{Modifier|0}))]] - [[@{repeating_rangedweapons_gundice}]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}"/>
                 
 				
 				<div class="spacing" style="width:0.5%"></div>
 				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
-                <button class="ammoElement1" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+                <button class="ammoElement1" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 1)"
                 value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
-				<button class="ammoElement2" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+				<button class="ammoElement2" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 2)"
                 value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
-				<button class="ammoElement3" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+				<button class="ammoElement3" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 3)"
                 value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
-				<button class="ammoElement4" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+				<button class="ammoElement4" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 4)"
                 value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
-				<button class="ammoElement5" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage"
+				<button class="ammoElement5" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 5)"
                 value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
 				<div class="spacing" style="width:0.5%"></div>
@@ -1137,11 +1132,12 @@
                 <select name="attr_gunaimbonus" style="width:33%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Aim Bonus</option>
                     <option value="0" selected >No Aim (+0)</option>
-                    <option value="10" >Half Aim (+10)</option>
-                    <option value="20" >Full Aim (+20)</option>
-                    <option value="20" >Accurate Half (+20)</option>
-                    <option value="30" >Accurate Full (+30)</option>
+                    <option value="1" >Half Aim (+10)</option>
+                    <option value="2" >Full Aim (+20)</option>
+                    <option value="3" >Accurate Half (+20)</option>
+                    <option value="4" >Accurate Full (+30)</option>
                 </select>
+				<input type="hidden" name="attr_gunaimbonusvalue" value="0"/>
                 <div class="spacing" style="width:0.5%"></div>
                 <select name="attr_gunrangebonus" style="width:33%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Range Mod</option>
@@ -1190,8 +1186,11 @@
 				<!-- end of line -->
 				<input type="hidden" name="attr_Rangedweaponatkmodgen" value="0"/>
 				<input type="hidden" name="attr_Rangedweaponatkmodsingle" value="0"/>
+				<input type="hidden" name="attr_Rangedweaponatkmodsingleain" value="0"/>
 				<input type="hidden" name="attr_Rangedweaponatkmodsemi" value="0"/>
+				<input type="hidden" name="attr_Rangedweaponatkmodsemiaim" value="0"/>
 				<input type="hidden" name="attr_Rangedweaponatkmodfull" value="0"/>
+				<input type="hidden" name="attr_Rangedweaponatkmodfullaim" value="0"/>
 			<div class="hbody quickborder">
 				<label style="width:26.5%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);">Weapon Qualities</label>
                 <div class="spacing" style="width:1%"></div>
@@ -1289,11 +1288,11 @@
 					<option value="5"><span class="iconBoltShell5"/></option>
 				</select>-->
 				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
-				<input name="attr_Ammo1name" class="ammoElement1" style="width:53%" type="text" title="Ammunition Type 1"/>
-				<input name="attr_Ammo2name" class="ammoElement2" style="width:53%" type="text" title="Ammunition Type 2"/>
-				<input name="attr_Ammo3name" class="ammoElement3" style="width:53%" type="text" title="Ammunition Type 3"/>
-				<input name="attr_Ammo4name" class="ammoElement4" style="width:53%" type="text" title="Ammunition Type 4"/>
-				<input name="attr_Ammo5name" class="ammoElement5" style="width:53%" type="text" title="Ammunition Type 5"/>
+				<input name="attr_Ammo1name" class="ammoElement1" style="width:53%" type="text" placeholder="Ammo Type 1" title="Ammunition Type 1"/>
+				<input name="attr_Ammo2name" class="ammoElement2" style="width:53%" type="text" placeholder="Ammo Type 2" title="Ammunition Type 2"/>
+				<input name="attr_Ammo3name" class="ammoElement3" style="width:53%" type="text" placeholder="Ammo Type 3" title="Ammunition Type 3"/>
+				<input name="attr_Ammo4name" class="ammoElement4" style="width:53%" type="text" placeholder="Ammo Type 4" title="Ammunition Type 4"/>
+				<input name="attr_Ammo5name" class="ammoElement5" style="width:53%" type="text" placeholder="Ammo Type 5" title="Ammunition Type 5"/>
 				<label style="width:2%"></label>
                 <!--<button name="roll_RangedReload" type="roll" style="width:14%" title="Rolls Weapon Damage"
                 value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
@@ -4856,103 +4855,89 @@ const parseTriggerName = function(string){
   match.shift();
   return match;
 };
-/* --- script for updating current ammo labels --- 
-on("change:repeating_rangedweapons:activeammo change:repeating_rangedweapon:Ammo1name change:repeating_rangedweapon:Ammo1clipsize change:repeating_rangedweapon:Ammo1clipmax change:repeating_rangedweapon:Ammo1totalrounds change:repeating_rangedweapon:Ammo2name change:repeating_rangedweapon:Ammo2clipsize change:repeating_rangedweapon:Ammo2clipmax change:repeating_rangedweapon:Ammo2totalrounds change:repeating_rangedweapon:Ammo3name change:repeating_rangedweapon:Ammo3clipsize change:repeating_rangedweapon:Ammo3clipmax change:repeating_rangedweapon:Ammo3totalrounds change:repeating_rangedweapon:Ammo4name change:repeating_rangedweapon:Ammo4clipsize change:repeating_rangedweapon:Ammo4clipmax change:repeating_rangedweapon:Ammo4totalrounds change:repeating_rangedweapon:Ammo5name change:repeating_rangedweapon:Ammo5clipsize change:repeating_rangedweapon:Ammo5clipmax change:repeating_rangedweapon:Ammo5totalrounds sheet:opened", function(eventInfo) {
-	getAttrs(["repeating_rangedweapons_activeammo",
-	"repeating_rangedweapon_Ammo1name",
-	"repeating_rangedweapon_Ammo1clipsize",
-	"repeating_rangedweapon_Ammo1clipmax",
-	"repeating_rangedweapon_Ammo1totalrounds",
-	"repeating_rangedweapon_Ammo2name",
-	"repeating_rangedweapon_Ammo2clipsize",
-	"repeating_rangedweapon_Ammo2clipmax",
-	"repeating_rangedweapon_Ammo2totalrounds",
-	"repeating_rangedweapon_Ammo3name",
-	"repeating_rangedweapon_Ammo3clipsize",
-	"repeating_rangedweapon_Ammo3clipmax",
-	"repeating_rangedweapon_Ammo3totalrounds",
-	"repeating_rangedweapon_Ammo4name",
-	"repeating_rangedweapon_Ammo4clipsize",
-	"repeating_rangedweapon_Ammo4clipmax"
-	"repeating_rangedweapon_Ammo4totalrounds",
-	"repeating_rangedweapon_Ammo5name",
-	"repeating_rangedweapon_Ammo5clipsize",
-	"repeating_rangedweapon_Ammo5clipmax",
-	"repeating_rangedweapon_Ammo5totalrounds"], function(values) {
-		var myAmmoChoice = parseInt(values["repeating_rangedweapons_activeammo"]);
-		var myAmmoName;
-		var myAmmoClipSize;
-		var myAmmoClipMax;
-		var myAmmoTotalAmmo;
-		if (myAmmoChoice == 1) {
-			myAmmoName = values["repeating_rangedweapons_Ammo1name"];
-			myAmmoClipSize = values["repeating_rangedweapons_Ammo1clipsize"];
-			myAmmoClipMax = values["repeating_rangedweapons_Ammo1clipmax"];
-			myAmmoTotalAmmo = values["repeating_rangedweapons_Ammo1totalrounds"];
-		} else if (myAmmoChoice == 2) {
-			myAmmoName = values["repeating_rangedweapons_Ammo2name"];
-			myAmmoClipSize = values["repeating_rangedweapons_Ammo2clipsize"];
-			myAmmoClipMax = values["repeating_rangedweapons_Ammo2clipmax"];
-			myAmmoTotalAmmo = values["repeating_rangedweapons_Ammo2totalrounds"];
-		} else if (myAmmoChoice == 3) {
-			myAmmoName = values["repeating_rangedweapons_Ammo3name"];
-			myAmmoClipSize = values["repeating_rangedweapons_Ammo3clipsize"];
-			myAmmoClipMax = values["repeating_rangedweapons_Ammo3clipmax"];
-			myAmmoTotalAmmo = values["repeating_rangedweapons_Ammo3totalrounds"];
-		} else if (myAmmoChoice == 4) {
-			myAmmoName = values["repeating_rangedweapons_Ammo4name"];
-			myAmmoClipSize = values["repeating_rangedweapons_Ammo4clipsize"];
-			myAmmoClipMax = values["repeating_rangedweapons_Ammo4clipmax"];
-			myAmmoTotalAmmo = values["repeating_rangedweapons_Ammo4totalrounds"];
-		} else if (myAmmoChoice == 5) {
-			myAmmoName = values["repeating_rangedweapons_Ammo5name"];
-			myAmmoClipSize = values["repeating_rangedweapons_Ammo5clipsize"];
-			myAmmoClipMax = values["repeating_rangedweapons_Ammo5clipmax"];
-			myAmmoTotalAmmo = values["repeating_rangedweapons_Ammo5totalrounds"];
-		}
-		
-		setAttrs({
-			repeating_rangedweapons_activeammoname: myAmmoName,
-			repeating_rangedweapons_Rangedweaponclip: myAmmoClipSize,
-			repeating_rangedweapons_Rangedweaponclipmax: myAmmoClipMax,
-			repeating_rangedweapons_Rangedspareammo: myAmmoTotalAmmo
-		});
-	});
-});*/
-
 /* --- script for the crp attack macro --- */
 on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 	console.log("Function called");
-    getAttrs(["repeating_rangedweapons_Rangedweaponsingle", "repeating_rangedweapons_rangedweaponsemi", "repeating_rangedweapons_Rangedweaponfull", "repeating_rangedweapons_gunactionbonusvalue", "repeating_rangedweapon_gunactionbonus", "repeating_rangedweapons_Rangedweaponname", "repeating_rangedweapons_gunaimbonus", "repeating_rangedweapons_gunrangebonus", "repeating_rangedweapons_rangedweaponmod", "repeating_rangedweapons_gundice", "repeating_rangedweapons_Rangedweaponclip", "repeating_rangedweapons_Rangedweaponclipmax", "repeating_rangedweapons_Rangedspareammo"], function(values) {
+    getAttrs(["repeating_rangedweapons_Rangedweaponsingle",
+	"repeating_rangedweapons_Rangedweaponsemi", 
+	"repeating_rangedweapons_Rangedweaponfull",
+	"repeating_rangedweapons_gunactionbonusvalue",
+	"repeating_rangedweapons_gunactionbonus",
+	"repeating_rangedweapons_Rangedweaponname",
+	"repeating_rangedweapons_gunaimbonus",
+	"repeating_rangedweapons_gunrangebonus",
+	"repeating_rangedweapons_rangedweaponmod",
+	"repeating_rangedweapons_gundice",
+	"repeating_rangedweapons_Rangedweaponclip",
+	"repeating_rangedweapons_Rangedweaponclipmax",
+	"repeating_rangedweapons_Rangedspareammo",
+	"repeating_rangedweapons_gunaimbonusvalue",
+	"repeating_rangedweapons_activeAmmo",
+	"repeating_rangedweapons_Ammo1name",
+	"repeating_rangedweapons_Ammo1clipsize",
+	"repeating_rangedweapons_Ammo1clipmax",
+	"repeating_rangedweapons_Ammo1totalrounds",
+	"repeating_rangedweapons_Ammo2name",
+	"repeating_rangedweapons_Ammo2clipsize",
+	"repeating_rangedweapons_Ammo2clipmax",
+	"repeating_rangedweapons_Ammo2totalrounds",
+	"repeating_rangedweapons_Ammo3name",
+	"repeating_rangedweapons_Ammo3clipsize",
+	"repeating_rangedweapons_Ammo3clipmax",
+	"repeating_rangedweapons_Ammo3totalrounds",
+	"repeating_rangedweapons_Ammo4name",
+	"repeating_rangedweapons_Ammo4clipsize",
+	"repeating_rangedweapons_Ammo4clipmax",
+	"repeating_rangedweapons_Ammo4totalrounds",
+	"repeating_rangedweapons_Ammo5name",
+	"repeating_rangedweapons_Ammo5clipsize",
+	"repeating_rangedweapons_Ammo5clipmax",
+	"repeating_rangedweapons_Ammo5totalrounds"], function(values) {
         let diceRoll; //= "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonus"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + values["repeating_rangedweapons_gundice"] + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
-		var fireType = 0;
-		var clipAmmo = parseInt(values["repeating_rangedweapons_Rangedweaponclip"]) || 0;
-		console.log(clipAmmo);
-		var clipMax = parseInt(values["repeating_rangedweapons_Rangedweaponclipmax"]) || 0;
-		console.log(clipMax);
-		var spareAmmo = parseInt(values["repeating_rangedweapons_Rangedspareammo"]) || 0;
-		console.log(spareAmmo);
+		var actionType = parseInt(values["repeating_rangedweapons_gunactionbonus"]) || 0;
+		var malfunctionType = 0;
+		var aimType = parseInt(values["repeating_rangedweapons_gunaimbonus"]) || 0;
+		var clipName;
+		var clipAmmo;
+		var clipMax;
+		var spareAmmo;
 		var myDice = parseInt(values["repeating_rangedweapons_gundice"]) || 0;
 		var myGunDice;
+		var activeAmmoType = parseInt(values["repeating_rangedweapons_activeAmmo"]) || 0;
+		var roundsFired;
+		var clipAmmoAfter = 0;
+		var singleFire = values["repeating_rangedweapons_Rangedweaponsingle"];
+		var semiAuto = parseInt(values["repeating_rangedweapons_Rangedweaponsemi"]) || 0;
+		var fullAuto = parseInt(values["repeating_rangedweapons_Rangedweaponfull"]) || 0;
 		
-		if (values["repeating_rangedweapon_gunactionbonus"] == 0) {
-			fireType = 1;
-			
-		} else if (values["repeating_rangedweapon_gunactionbonus"] == 1) {
-			fireType = 2;
-		} else if (values["repeating_rangedweapon_gunactionbonus"] == 2) {
-			fireType = 3;
-		} else if (values["repeating_rangedweapon_gunactionbonus"] == 3) {
-			fireType = 1;
-		} else if (values["repeating_rangedweapon_gunactionbonus"] == 4) {
-			fireType = 3;
-		} else if (values["repeating_rangedweapon_gunactionbonus"] == 5) {
-			fireType = 2;
-		} else if (values["repeating_rangedweapon_gunactionbonus"] == 6) {
-			fireType = 3;
+		if (activeAmmoType == 1) {
+			clipName = values["repeating_rangedweapons_Ammo1name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo1clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo1clipmax"]) || 0;
+			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo1totalrounds"]) || 0;
+		} else if (activeAmmoType == 2) {
+			clipName = values["repeating_rangedweapons_Ammo2name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo2clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo2clipmax"]) || 0;
+			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo2totalrounds"]) || 0;
+		} else if (activeAmmoType == 3) {
+			clipName = values["repeating_rangedweapons_Ammo3name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo3clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo3clipmax"]) || 0;
+			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo3totalrounds"]) || 0;
+		} else if (activeAmmoType == 4) {
+			clipName = values["repeating_rangedweapons_Ammo4name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo4clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo4clipmax"]) || 0;
+			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo4totalrounds"]) || 0;
+		} else if (activeAmmoType == 5) {
+			clipName = values["repeating_rangedweapons_Ammo5name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo5clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo5clipmax"]) || 0;
+			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo5totalrounds"]) || 0;
 		}
 		
-		if (fireType == 1) {
+		if (actionType == 0) {
 			if (myDice == 0) {
 				myGunDice = "1d100cs1cf>96";
 			} else if (myDice == 1 || myDice == 2) {
@@ -4960,7 +4945,47 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 			} else if (myDice == 3) {
 				myGunDice = "1d100cs1cf101";
 			}
-		} else if (fireType == 2 || fireType == 3) {
+		} else if (actionType == 1) {
+			if (myDice == 0) {
+				myGunDice = "1d100cs1cf>94";
+			} else if (myDice == 1 || myDice == 2) {
+				myGunDice = "1d100cs1cf>91";
+			} else if (myDice == 3) {
+				myGunDice = "1d100cs1cf101";
+			}
+		} else if (actionType == 2) {
+			if (myDice == 0) {
+				myGunDice = "1d100cs1cf>94";
+			} else if (myDice == 1 || myDice == 2) {
+				myGunDice = "1d100cs1cf>91";
+			} else if (myDice == 3) {
+				myGunDice = "1d100cs1cf101";
+			}
+		} else if (actionType == 3) {
+			if (myDice == 0) {
+				myGunDice = "1d100cs1cf>96";
+			} else if (myDice == 1 || myDice == 2) {
+				myGunDice = "1d100cs1cf>91";
+			} else if (myDice == 3) {
+				myGunDice = "1d100cs1cf101";
+			}
+		} else if (actionType == 4) {
+			if (myDice == 0) {
+				myGunDice = "1d100cs1cf>94";
+			} else if (myDice == 1 || myDice == 2) {
+				myGunDice = "1d100cs1cf>91";
+			} else if (myDice == 3) {
+				myGunDice = "1d100cs1cf101";
+			}
+		} else if (actionType == 5) {
+			if (myDice == 0) {
+				myGunDice = "1d100cs1cf>94";
+			} else if (myDice == 1 || myDice == 2) {
+				myGunDice = "1d100cs1cf>91";
+			} else if (myDice == 3) {
+				myGunDice = "1d100cs1cf101";
+			}
+		} else if (actionType == 6) {
 			if (myDice == 0) {
 				myGunDice = "1d100cs1cf>94";
 			} else if (myDice == 1 || myDice == 2) {
@@ -4969,33 +4994,174 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 				myGunDice = "1d100cs1cf101";
 			}
 		}
-		console.log("Fire Mode: " + fireType);
+		
+		if (myDice == 1) {
+			malfunctionType = 1;
+		}
+		console.log("Fire Mode: " + actionType);
+		
+		if (actionType == 0 || actionType == 3) {
+			if (singleFire !== "S") {
+				actionType = 7;
+			}
+		} else if (actionType == 1 || actionType == 5) {
+			if (semiAuto == "-" || semiAuto == "" || semiAuto == 1 || semiAuto == 0) {
+				actionType = 7;
+			}
+		} else if (actionType == 2 || actionType == 4 || actionType == 6) {
+			if (fullAuto == "-" || fullAuto == "" || fullAuto == 1 || fullAuto == 0) {
+				actionType = 7;
+			}
+		}
+		
+		if (actionType == 1 || actionType == 2 || actionType == 4 || actionType == 5 || actionType == 6) {
+			if (clipAmmo == 1) {
+				actionType = 9;
+			}
+		}
 		
 		if (clipAmmo == 0) {
-			fireType = 0;
+			actionType = 8;
 		}
 		
-		if (fireType == 0) {
-			<!-- ERROR: Magazine Empty -->
-			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{d1= }} {{t1=&#x1F4A2; CLICK! &#x1F4A2;}} {{p1= }} {{desc=" + values["repeating_rangedweapons_Rangedweaponname"] + " is out of ammunition. You need to reload!}}";
-		} else if (fireType == 1) {
+		if (actionType == 0) {
 			<!-- Single Fire Mode -->
-			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonus"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
-		} else if (fireType == 2) {
+			roundsFired = 1;
+			clipAmmoAfter = clipAmmo - roundsFired;
+			if (malfunctionType == 0) {	
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a single shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
+			} else if (malfunctionType == 1) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a single shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
+			}		
+		} else if (actionType == 1) {
 			<!-- Semi-Auto Fire Mode -->
-			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonus"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
-		} else if (fireType == 3) {
+			if (clipAmmo > semiAuto) {
+				roundsFired = semiAuto;
+				clipAmmoAfter = clipAmmo - roundsFired;
+			} else if (semiAuto > clipAmmo) {
+				roundsFired = clipAmmo;
+				clipAmmoAfter = 0;
+			}
+			if (malfunctionType == 0) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
+			} else if (malfunctionType == 1) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
+			}
+		} else if (actionType == 2) {
 			<!-- Full-Auto Fire Mode -->
-			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonus"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
-		} else if (fireType == 5) {
+			if (clipAmmo > fullAuto) {
+				roundsFired = fullAuto;
+				clipAmmoAfter = clipAmmo - roundsFired;
+			} else if (fullAuto > clipAmmo) {
+				roundsFired = clipAmmo;
+				clipAmmoAfter = 0;
+			}
+			if (malfunctionType == 0) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires an automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+			} else if (malfunctionType == 1) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires an automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+			}
+		} else if (actionType == 3) {
+			<!-- Called Shot Fire Mode -->
+			roundsFired = 1;
+			clipAmmoAfter = clipAmmo - roundsFired;
+			if (malfunctionType == 0) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a called shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
+			} else if (malfunctionType == 1) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a called shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
+			}
+		} else if (actionType == 4) {
+			<!-- Suppressing Fire Mode -->
+			if (clipAmmo > fullAuto) {
+				roundsFired = fullAuto;
+				clipAmmoAfter = clipAmmo - roundsFired;
+			} else if (fullAuto > clipAmmo) {
+				roundsFired = clipAmmo;
+				clipAmmoAfter = 0;
+			}
+			if (malfunctionType == 0) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires automatic suppressing fire with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+			} else if (malfunctionType == 1) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires automatic suppressing fire with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+			}
+		} else if (actionType == 5) {
+			<!-- Run and Gun Semi-Auto Fire Mode -->
+			if (clipAmmo > semiAuto) {
+				roundsFired = semiAuto;
+				clipAmmoAfter = clipAmmo - roundsFired;
+			} else if (semiAuto > clipAmmo) {
+				roundsFired = clipAmmo;
+				clipAmmoAfter = 0;
+			}
+			if (malfunctionType == 0) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
+			} else if (malfunctionType == 1) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
+			}
+		} else if (actionType == 6) {
+			<!-- Run and Gun Full-Auto Fire Mode -->
+			if (clipAmmo > fullAuto) {
+				roundsFired = fullAuto;
+				clipAmmoAfter = clipAmmo - roundsFired;
+			} else if (fullAuto > clipAmmo) {
+				roundsFired = clipAmmo;
+				clipAmmoAfter = 0;
+			}
+			if (malfunctionType == 0) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+			} else if (malfunctionType == 1) {
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+			}
+		} else if (actionType == 7) {
 			<!-- ERROR: Fire Mode Not Available -->
-			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{desc=" + values["repeating_rangedweapons_Rangedweaponname"] + " does not have this firing mode}}";
+			roundsFired = 0;
+			clipAmmoAfter = clipAmmo;
+			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{d1= }} {{t1=&#x1F4A2; WARNING! &#x1F4A2;}} {{p1= }} {{desc=" + values["repeating_rangedweapons_Rangedweaponname"] + " does not have this fire mode! Choose a valid fire mode!}}";
+		} else if (actionType == 8) {
+			<!-- ERROR: Magazine Empty -->
+			roundsFired = 0;
+			clipAmmoAfter = 0;
+			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{d1= }} {{t1=&#x1F4A2; CLICK! &#x1F4A2;}} {{p1= }} {{desc=" + values["repeating_rangedweapons_Rangedweaponname"] + " is out of ammunition. You need to reload!}}";
+		} else if (actionType == 9) {
+			<!-- ERROR: One Round Left -->
+			roundsFired = 0;
+			clipAmmoAfter = clipAmmo;
+			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{d1= }} {{t1=&#x1F4A2; WARNING! &#x1F4A2;}} {{p1= }} {{desc=" + values["repeating_rangedweapons_Rangedweaponname"] + " only has a single round left in the clip. Use Single Fire mode or Reload!}}";
 		}
+		
+		
 		
 		console.log(diceRoll);
+		console.log(roundsFired);
         startRoll(diceRoll, (r) => {
             finishRoll(r.rollId);
         });
+		
+		if (clipAmmoAfter < 0) {
+			clipAmmoAfter = 0;
+		}
+		
+		if (activeAmmoType == 1) {
+			setAttrs({
+				repeating_rangedweapons_Ammo1clipsize: clipAmmoAfter
+			});
+		} else if (activeAmmoType == 2) {
+			setAttrs({
+				repeating_rangedweapons_Ammo2clipsize: clipAmmoAfter
+			});
+		} else if (activeAmmoType == 3) {
+			setAttrs({
+				repeating_rangedweapons_Ammo3clipsize: clipAmmoAfter
+			});
+		} else if (activeAmmoType == 4) {
+			setAttrs({
+				repeating_rangedweapons_Ammo4clipsize: clipAmmoAfter
+			});
+		} else if (activeAmmoType == 5) {
+			setAttrs({
+				repeating_rangedweapons_Ammo5clipsize: clipAmmoAfter
+			});
+		}
     });
 });
 
@@ -5030,16 +5196,147 @@ on("change:repeating_rangedweapons:gunactionbonus", function(eventInfo) {
 	});
 });
 
+on("change:repeating_rangedweapons:gunaimbonus", function(eventInfo) {
+	console.log("Function called");
+	getAttrs(["repeating_rangedweapons_gunaimbonus"], function(values) {
+		let selection = parseInt(values["repeating_rangedweapons_gunaimbonus"]) || 0;
+		let [section,rowID,field] = parseTriggerName(eventInfo.triggerName);
+		console.log(selection);
+		console.log(rowID);
+		let myValue = 0;
+		if (selection == 0) {
+			myValue = 0;
+		} else if (selection == 1) {
+			myValue = 10;
+		} else if (selection == 2) {
+			myValue = 20;
+		} else if (selection == 3) {
+			myValue = 20;
+		} else if (selection == 4) {
+			myValue = 30;
+		} else {
+			myValue = 0;
+		}
+		
+		console.log("Aim Value: " + myValue);
+		setAttrs({
+			repeating_rangedweapons_gunaimbonusvalue: parseInt(myValue)
+		});
+	});
+});
+
 /* --- script for the crp reload macro --- */
 on("clicked:repeating_rangedweapons:gunreload", function(eventInfo) {
 	console.log("Function called");
-    getAttrs(["repeating_rangedweapons_gunactionbonusvalue", "repeating_rangedweapons_Rangedweaponname", "repeating_rangedweapons_gunaimbonus", "repeating_rangedweapons_gunrangebonus", "repeating_rangedweapons_rangedweaponmod", "repeating_rangedweapons_gundice"], function(values) {
-        console.log(values["repeating_rangedweapons_gunactionbonusvalue"]);
-		console.log(values["repeating_rangedweapons_Rangedweaponname"]);
-		console.log(values["repeating_rangedweapons_gunaimbonus"]);
-		console.log(values["repeating_rangedweapons_gunrangebonus"]);
-		console.log(values["repeating_rangedweapons_rangedweaponmod"]);
-		console.log(values["repeating_rangedweapons_gundice"]);
+    getAttrs(["repeating_rangedweapons_gunactionbonusvalue", 
+	"repeating_rangedweapons_Rangedweaponname", 
+	"repeating_rangedweapons_gunaimbonus", 
+	"repeating_rangedweapons_gunrangebonus", 
+	"repeating_rangedweapons_rangedweaponmod",
+	"repeating_rangedweapons_gundice",
+	"repeating_rangedweapons_activeAmmo",
+	"repeating_rangedweapons_Ammo1name",
+	"repeating_rangedweapons_Ammo1clipsize",
+	"repeating_rangedweapons_Ammo1clipmax",
+	"repeating_rangedweapons_Ammo1totalrounds",
+	"repeating_rangedweapons_Ammo2name",
+	"repeating_rangedweapons_Ammo2clipsize",
+	"repeating_rangedweapons_Ammo2clipmax",
+	"repeating_rangedweapons_Ammo2totalrounds",
+	"repeating_rangedweapons_Ammo3name",
+	"repeating_rangedweapons_Ammo3clipsize",
+	"repeating_rangedweapons_Ammo3clipmax",
+	"repeating_rangedweapons_Ammo3totalrounds",
+	"repeating_rangedweapons_Ammo4name",
+	"repeating_rangedweapons_Ammo4clipsize",
+	"repeating_rangedweapons_Ammo4clipmax",
+	"repeating_rangedweapons_Ammo4totalrounds",
+	"repeating_rangedweapons_Ammo5name",
+	"repeating_rangedweapons_Ammo5clipsize",
+	"repeating_rangedweapons_Ammo5clipmax",
+	"repeating_rangedweapons_Ammo5totalrounds"], function(values) {
+        var activeAmmoType = parseInt(values["repeating_rangedweapons_activeAmmo"]) || 0;
+		var clipName;
+		var clipAmmo;
+		var clipMax;
+		var spareRounds;
+		var clipDelta;
+		var clipAmmoReload;
+		var spareRoundsAfter;
+		var diceRoll;
+		if (activeAmmoType == 1) {
+			clipName = values["repeating_rangedweapons_Ammo1name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo1clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo1clipmax"]) || 0;
+			spareRounds = parseInt(values["repeating_rangedweapons_Ammo1totalrounds"]) || 0;
+		} else if (activeAmmoType == 2) {
+			clipName = values["repeating_rangedweapons_Ammo2name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo2clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo2clipmax"]) || 0;
+			spareRounds = parseInt(values["repeating_rangedweapons_Ammo2totalrounds"]) || 0;
+		} else if (activeAmmoType == 3) {
+			clipName = values["repeating_rangedweapons_Ammo3name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo3clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo3clipmax"]) || 0;
+			spareRounds = parseInt(values["repeating_rangedweapons_Ammo3totalrounds"]) || 0;
+		} else if (activeAmmoType == 4) {
+			clipName = values["repeating_rangedweapons_Ammo4name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo4clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo4clipmax"]) || 0;
+			spareRounds = parseInt(values["repeating_rangedweapons_Ammo4totalrounds"]) || 0;
+		} else if (activeAmmoType == 5) {
+			clipName = values["repeating_rangedweapons_Ammo5name"];
+			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo5clipsize"]) || 0;
+			clipMax = parseInt(values["repeating_rangedweapons_Ammo5clipmax"]) || 0;
+			spareRounds = parseInt(values["repeating_rangedweapons_Ammo5totalrounds"]) || 0;
+		}
+		
+		if (clipAmmo < 0) {
+			clipAmmo = 0;
+		}
+		
+		clipDelta = clipMax - clipAmmo;
+		
+		if (spareRounds > clipDelta) {
+			clipAmmoReload = clipMax;
+			spareRoundsAfter = spareRounds - clipDelta;
+		} else if (clipDelta > spareRounds) {
+			clipAmmoReload = clipAmmo + spareRounds;
+			spareRoundsAfter = 0;
+		}
+		
+		if (activeAmmoType == 1) {
+			setAttrs({
+				repeating_rangedweapons_Ammo1clipsize: clipAmmoReload,
+				repeating_rangedweapons_Ammo1totalrounds: spareRoundsAfter
+			});
+		} else if (activeAmmoType == 2) {
+			setAttrs({
+				repeating_rangedweapons_Ammo2clipsize: clipAmmoReload,
+				repeating_rangedweapons_Ammo2totalrounds: spareRoundsAfter
+			});
+		} else if (activeAmmoType == 3) {
+			setAttrs({
+				repeating_rangedweapons_Ammo3clipsize: clipAmmoReload,
+				repeating_rangedweapons_Ammo3totalrounds: spareRoundsAfter
+			});
+		} else if (activeAmmoType == 4) {
+			setAttrs({
+				repeating_rangedweapons_Ammo4clipsize: clipAmmoReload,
+				repeating_rangedweapons_Ammo4totalrounds: spareRoundsAfter
+			});
+		} else if (activeAmmoType == 5) {
+			setAttrs({
+				repeating_rangedweapons_Ammo5clipsize: clipAmmoReload,
+				repeating_rangedweapons_Ammo5totalrounds: spareRoundsAfter
+			});
+		}
+		
+		diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} reloads " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{d1= }} {{t1=" + clipName + " Reloaded}} {{p1=" + clipAmmo + "/" + clipMax + " > " + clipAmmoReload + "/" + clipMax + "}} {{desc=Spare Ammunition Remaining: " + spareRoundsAfter + "}}";
+		
+		startRoll(diceRoll, (r) => {
+            finishRoll(r.rollId);
+        });
     });
 });
     
@@ -5473,10 +5770,10 @@ on("change:inimod change:AB change:IB change:PB sheet:opened", function(eventInf
                 <div class="sheet-name">{{name}}</div>
             {{/name}}
         <!--section that allows the 2 columns to show key and value side by side -->
-            {{#allprops() calc warpt nova2 nova1 tordmg sptor splan spmac xd5 d5 xd10 d10 d100h field npcflame hallu flame d1 t1 p1 psyres d100p stun d100a parry dosdof testresult testtarget d100 psydesc psypen psydmg desc name attack hitloc fallhitloc bloodloss fury navmutable perilstable psytable shocktable traumatable maligtable mutable scatter multihit}}  
+            {{#allprops() calc warpt nova2 nova1 tordmg sptor splan spmac xd5 d5 xd10 d10 d100h field npcflame hallu flame d1 t1 p1 psyres d100p stun d100a d100b parry dosdof testresult testtarget d100 psydesc psypen psydmg desc name attack hitloc fallhitloc bloodloss fury navmutable perilstable psytable shocktable traumatable maligtable mutable scatter multihit}}  
                 <div class="sheet-key">{{key}}</div>
                 <div class="sheet-value">{{value}}</div><!--hidden rolls that can be reused {{psypen}} {{psydmg}} {{hitloc}} {{xd5 d5 xd10 d10 d100h}}-->
-            {{/allprops() calc warpt nova2 nova1 tordmg sptor splan spmac xd5 d5 xd10 d10 d100h field npcflame hallu flame d1 t1 p1 psyres d100p stun d100a parry dosdof testresult testtarget d100 psydesc psypen psydmg desc name attack hitloc fallhitloc bloodloss fury navmutable perilstable psytable shocktable traumatable maligtable mutable scatter multihit}}
+            {{/allprops() calc warpt nova2 nova1 tordmg sptor splan spmac xd5 d5 xd10 d10 d100h field npcflame hallu flame d1 t1 p1 psyres d100p stun d100a d100b parry dosdof testresult testtarget d100 psydesc psypen psydmg desc name attack hitloc fallhitloc bloodloss fury navmutable perilstable psytable shocktable traumatable maligtable mutable scatter multihit}}
 		 <!--section for regular rolls show success and failure-->
             {{#testtarget}}
                 <div class="sheet-result">{{testtarget}}&#160;Threshold</div>
@@ -5538,9 +5835,16 @@ on("change:inimod change:AB change:IB change:PB sheet:opened", function(eventInf
 				    <div class="sheet-result" style="color:red">the weapon malfunctions!</div>
 			    {{/rollWasFumble() d100a }}
             {{/d100a}}
+			{{#d100b}}
+		        <div class="sheet-result">{{d100b}}&#160;d100 Roll</div>
+                {{#rollWasFumble() d100b }}
+				    <div class="sheet-result" style="color:red">the weapon overheats!</div>
+			    {{/rollWasFumble() d100b }}
+            {{/d100b}}
             {{#attack}}
             <div class="sheet-result">{{attack}}
                     {{#rollGreater() d100a testtarget}}Missed...{{/rollGreater() d100a testtarget}}
+					{{#rollGreater() d100b testtarget}}Missed...{{/rollGreater() d100b testtarget}}
                     {{#^rollGreater() d100a testtarget}}Attack Hits! &#x1F4A2; <br>
                             <!--head locations-->
                             {{#rollTotal() hitloc 01}}Head{{/rollTotal() hitloc 01}}
@@ -5610,6 +5914,75 @@ on("change:inimod change:AB change:IB change:PB sheet:opened", function(eventInf
                             {{#rollTotal() hitloc 19}}Left Leg{{/rollTotal() hitloc 19}}
                             {{#rollTotal() hitloc 09}}Left Leg{{/rollTotal() hitloc 09}}
                     {{/^rollGreater() d100a testtarget}}
+					{{#^rollGreater() d100b testtarget}}Attack Hits! &#x1F4A2; <br>
+                            <!--head locations-->
+                            {{#rollTotal() hitloc 01}}Head{{/rollTotal() hitloc 01}}
+                            {{#rollTotal() hitloc 10}}Head{{/rollTotal() hitloc 10}}
+                            {{#rollTotal() hitloc 20}}Head{{/rollTotal() hitloc 20}}
+                            {{#rollTotal() hitloc 30}}Head{{/rollTotal() hitloc 30}}
+                            {{#rollTotal() hitloc 40}}Head{{/rollTotal() hitloc 40}}
+                            {{#rollTotal() hitloc 50}}Head{{/rollTotal() hitloc 50}}
+                            {{#rollTotal() hitloc 60}}Head{{/rollTotal() hitloc 60}}
+                            {{#rollTotal() hitloc 70}}Head{{/rollTotal() hitloc 70}}
+                            {{#rollTotal() hitloc 80}}Head{{/rollTotal() hitloc 80}}
+                            {{#rollTotal() hitloc 90}}Head{{/rollTotal() hitloc 90}}
+                            <!--right arm locations-->
+                            {{#rollTotal() hitloc 91}}Right Arm{{/rollTotal() hitloc 91}}
+                            {{#rollTotal() hitloc 81}}Right Arm{{/rollTotal() hitloc 81}}
+                            {{#rollTotal() hitloc 71}}Right Arm{{/rollTotal() hitloc 71}}
+                            {{#rollTotal() hitloc 61}}Right Arm{{/rollTotal() hitloc 61}}
+                            {{#rollTotal() hitloc 51}}Right Arm{{/rollTotal() hitloc 51}}
+                            {{#rollTotal() hitloc 41}}Right Arm{{/rollTotal() hitloc 41}}
+                            {{#rollTotal() hitloc 31}}Right Arm{{/rollTotal() hitloc 31}}
+                            {{#rollTotal() hitloc 21}}Right Arm{{/rollTotal() hitloc 21}}
+                            {{#rollTotal() hitloc 11}}Right Arm{{/rollTotal() hitloc 11}}
+                            {{#rollTotal() hitloc 02}}Right Arm{{/rollTotal() hitloc 02}}
+                            <!--left arm locations-->
+                            {{#rollTotal() hitloc 92}}Left Arm{{/rollTotal() hitloc 92}}
+                            {{#rollTotal() hitloc 82}}Left Arm{{/rollTotal() hitloc 82}}
+                            {{#rollTotal() hitloc 72}}Left Arm{{/rollTotal() hitloc 72}}
+                            {{#rollTotal() hitloc 62}}Left Arm{{/rollTotal() hitloc 62}}
+                            {{#rollTotal() hitloc 52}}Left Arm{{/rollTotal() hitloc 52}}
+                            {{#rollTotal() hitloc 42}}Left Arm{{/rollTotal() hitloc 42}}
+                            {{#rollTotal() hitloc 32}}Left Arm{{/rollTotal() hitloc 32}}
+                            {{#rollTotal() hitloc 22}}Left Arm{{/rollTotal() hitloc 22}}
+                            {{#rollTotal() hitloc 12}}Left Arm{{/rollTotal() hitloc 12}}
+                            {{#rollTotal() hitloc 03}}Left Arm{{/rollTotal() hitloc 03}}
+                            <!--body locations-->
+                            {{#rollBetween() hitloc 93 96}}Body{{/rollBetween() hitloc 93 96}}
+                            {{#rollBetween() hitloc 83 86}}Body{{/rollBetween() hitloc 83 86}}
+                            {{#rollBetween() hitloc 73 76}}Body{{/rollBetween() hitloc 73 76}}
+                            {{#rollBetween() hitloc 63 66}}Body{{/rollBetween() hitloc 63 66}}
+                            {{#rollBetween() hitloc 53 56}}Body{{/rollBetween() hitloc 53 56}}
+                            {{#rollBetween() hitloc 43 46}}Body{{/rollBetween() hitloc 43 46}}
+                            {{#rollBetween() hitloc 33 36}}Body{{/rollBetween() hitloc 33 36}}
+                            {{#rollBetween() hitloc 23 26}}Body{{/rollBetween() hitloc 23 26}}
+                            {{#rollBetween() hitloc 13 16}}Body{{/rollBetween() hitloc 13 16}}
+                            {{#rollBetween() hitloc 04 07}}Body{{/rollBetween() hitloc 04 07}}
+                            <!--right leg locations-->
+                            {{#rollTotal() hitloc 97}}Right Leg{{/rollTotal() hitloc 97}}
+                            {{#rollTotal() hitloc 87}}Right Leg{{/rollTotal() hitloc 87}}
+                            {{#rollTotal() hitloc 77}}Right Leg{{/rollTotal() hitloc 77}}
+                            {{#rollTotal() hitloc 67}}Right Leg{{/rollTotal() hitloc 67}}
+                            {{#rollBetween() hitloc 57 58}}Right Leg{{/rollBetween() hitloc 57 58}}
+                            {{#rollBetween() hitloc 47 48}}Right Leg{{/rollBetween() hitloc 47 48}}
+                            {{#rollBetween() hitloc 37 38}}Right Leg{{/rollBetween() hitloc 37 38}}
+                            {{#rollBetween() hitloc 27 28}}Right Leg{{/rollBetween() hitloc 27 28}}
+                            {{#rollBetween() hitloc 17 18}}Right Leg{{/rollBetween() hitloc 17 18}}
+                            {{#rollTotal() hitloc 08}}Right Leg{{/rollTotal() hitloc 08}}
+                            <!--left leg locations-->
+                            {{#rollTotal() hitloc 100}}Left Leg{{/rollTotal() hitloc 100}}
+                            {{#rollBetween() hitloc 98 99}}Left Leg{{/rollBetween() hitloc 98 99}}
+                            {{#rollBetween() hitloc 88 89}}Left Leg{{/rollBetween() hitloc 88 89}}
+                            {{#rollBetween() hitloc 78 79}}Left Leg{{/rollBetween() hitloc 78 79}}
+                            {{#rollBetween() hitloc 68 69}}Left Leg{{/rollBetween() hitloc 68 69}}
+                            {{#rollTotal() hitloc 59}}Left Leg{{/rollTotal() hitloc 59}}
+                            {{#rollTotal() hitloc 49}}Left Leg{{/rollTotal() hitloc 49}}
+                            {{#rollTotal() hitloc 39}}Left Leg{{/rollTotal() hitloc 39}}
+                            {{#rollTotal() hitloc 29}}Left Leg{{/rollTotal() hitloc 29}}
+                            {{#rollTotal() hitloc 19}}Left Leg{{/rollTotal() hitloc 19}}
+                            {{#rollTotal() hitloc 09}}Left Leg{{/rollTotal() hitloc 09}}
+                    {{/^rollGreater() d100b testtarget}}
                 </div>
             {{/attack}}
         <!--section for strike to stun -->
