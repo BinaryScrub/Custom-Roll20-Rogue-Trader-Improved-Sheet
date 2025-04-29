@@ -1191,8 +1191,9 @@
 				<input type="hidden" name="attr_Rangedweaponatkmodsemiaim" value="0"/>
 				<input type="hidden" name="attr_Rangedweaponatkmodfull" value="0"/>
 				<input type="hidden" name="attr_Rangedweaponatkmodfullaim" value="0"/>
+				<input type="hidden" name="attr_Rangedweaponatkmodsuppress" value="0"/>
 			<div class="hbody quickborder">
-				<label style="width:26.5%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);">Weapon Qualities</label>
+				<label style="width:34%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);text-align:center;">Weapon Qualities</label>
                 <div class="spacing" style="width:1%"></div>
 				<label style="width:8%">Class</label>
 				<select name="attr_Rangedweaponclass" style="width:16%">
@@ -1202,7 +1203,7 @@
                     <option value="Basic" selected>Basic</option>
                     <option value="Heavy">Heavy</option>
                 </select>
-				<div class="spacing" style="width:2%"></div>
+				<div class="spacing" style="width:1%"></div>
 				<label style="width:22%">Craftsmanship</label>
 				<select name="attr_Rangedweaponcraft" style="width:18%">
                     <option disabled style="background:gray;font-weight:bold;color:white;">Craftsmanship&nbsp;</option>
@@ -1211,10 +1212,9 @@
                     <option value="Good">Good</option>
                     <option value="Best">Best</option>
                 </select>
-                <div class="spacing" style="width:1%"></div>
-				
-				<label style="width:18%">Malfunction</label>
-				<select name="attr_gundice" style="width:29%">
+				<!-- end of line -->
+				<label style="width:26%">Malfunction Type</label>
+				<select name="attr_gundice" style="width:33%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Jam Chance</option>
                     <option value="0" selected >Standard (94/96+)</option>
                     <option value="1" >Overheats (91+)</option>
@@ -1231,7 +1231,7 @@
                     <option value="1d100cs1cf101" >Best Craft (No Jam)</option>
                     <option disabled style="background:gray;font-weight:bold;color:white">Reliable rolls 1d10 on jam&nbsp;</option>
                 </select>-->
-				<!-- end of line -->
+				<div class="spacing" style="width:2.5%"></div>
 				<label style="width:22.5%">Special Quality</label>
                 <select name="attr_gunquality" style="width:16%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Weapon Quality</option>
@@ -1257,11 +1257,99 @@
                     <option value="{{d1= Smokescreen Range [[3d10]]m diameter&#10;&#10;Screen lasts [[2d10]] Rounds}}">Smoke</option>
                     <option disabled style="background:gray;font-weight:bold;color:white">See WIKI for Proven Quality</option>
                 </select>
-				<div class="spacing" style="width:1%"></div>
-				<div class="spacing" style="width:60.5%"></div>
-                <!-- end of line -->
-				<label style="width:11%" class="help" title="Fixed Test modifiers for Attack roll&#10;&#10;Example: Red-Dot Sight (+10)">Mod &#128712;</label>
+				<!-- end of line -->
+				<div class="spacing" style="width:1%"></div>                
+				<label style="width:16%" class="help" title="Miscellaneous modifiers to weapon attack roll.">Misc. Mod</label>
                 <input name="attr_Rangedweaponmod" style="width:9%" type="number" value="0"/>
+				<div class="spacing" style="width:74%"></div> 
+				<!-- end of line -->
+				<label style="width:34%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);text-align:center;">Attachments</label>
+				<div class="spacing" style="width:1%"></div>
+				<input type="checkbox" style="width:3%" name="attr_hiderangedweaponsattach" value="1" class="arrow icon arrow8" title="Hide Attachments"></input>
+				<div class="spacing" style="width:62%"></div>
+				<!-- end of line -->
+				<div class="hbody8">
+					<div class="quickborder">
+						<label style="width:14%">- Optics -</label>
+						<div class="spacing" style="width:86%"></div>
+						<!-- end of line -->
+						<input type="checkbox" style="width:5%" name="attr_photoScopeAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help"  title="Photo-Scope&#10;&#10;Upgrades: Any Basic ranged Las, Solid Projectile, Bolt, Primitive or&#10;Plasma weapon. A photo sight counts as a sight and a gun may&#10;only have one sight.&#10;&#10;This is a weapon sight that enhances ambient light levels, improving&#10;the user’s vision and ability to see in the dark. A character using a&#10;Photo Sight suffers no penalties due to darkness.">Photo-Scope &#128712;</label>
+						<div class="spacing" style="width:4%"></div>
+						<input type="checkbox" style="width:5%" name="attr_preyScopeAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Preysense-Scope&#10;&#10;Upgrades: Any Basic ranged Las, Solid Projectile, Bolt, Primitive or&#10;Plasma weapon. A preysense sight counts as a sight and a gun&#10;may only have one sight.&#10;&#10;This is a weapon sight that shows thermal images and reveals&#10;the hiding places of enemies who lurk in the darkness. A character&#10;using a Preysense sight suffers no penalties due to darkness and&#10;gains a +20 bonus to vision-based Perception Tests at night.">Preysense-Scope &#128712;</label>
+						<!-- end of line -->
+						<input type="checkbox" style="width:5%" name="attr_rdsScopeAttch" value="10"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Red-Dot Laser Sight&#10;&#10;Upgrades: Any Pistol- or Basic-class Las, Solid Projectile, Bolt,&#10;Primitive or Plasma weapon. A red-dot laser sight counts as a&#10;sight and a gun may only have one sight.&#10;&#10;This is a laser sight that grants a +10 bonus to Ballistic Skill&#10;Tests when the weapon is fired in single shot mode.">Red-Dot Laser Sight &#128712;</label>
+						<div class="spacing" style="width:4%"></div>
+						<input type="checkbox" style="width:5%" name="attr_teleScopeAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Telescopic Sight&#10;&#10;Upgrades: Any Basic Las, Solid Projectile, Bolt, Primitive or&#10;Plasma weapon. A telescopic sight counts as a sight and a&#10;gun may only have one sight.&#10;&#10;Telescopic sights magnify the target’s image making it easy&#10;to see. This is especially useful for long-range shots that&#10;need to hit a very specific target location. A weapon with a&#10;telescopic sight ignores penalties for long and extreme&#10;range as long as the shooter takes a Full Action to Aim.">Telescopic Sight &#128712;</label>
+						<!-- end of line -->
+						<input type="checkbox" style="width:5%" name="attr_omniScopeAttch" value="10"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Omni-Scope&#10;&#10;Upgrades: Any Basic-class Las, Solid Projectile, Bolt,&#10;Primitive or Plasma weapon. An Omni-scope counts as&#10;a sight and a gun may only have one sight.&#10;&#10;A vastly expensive and rare device normally found only in&#10;the hands of legendary assassins or bounty hunters, the&#10;Omni-scope is a cluster of finely-tuned sensor wands linked&#10;to a precision lens. Some of these scopes plug directly into&#10;a bionic cranial port, allowing the user to shoot around&#10;corners without exposing himself—the scope becomes a&#10;“third eye.” The Omni-scope combines the benefits of a&#10;Preysense Sight, Red-Dot-Laser Sight, and Telescopic Sight.">Omni-Scope &#128712;</label>
+						<div class="spacing" style="width:52%"></div>
+					</div>
+					<div class="quickborder">
+						<label style="width:14%">- Frame -</label>
+						<div class="spacing" style="width:86%"></div>
+						<!-- end of line -->
+						<input type="checkbox" style="width:5%" name="attr_compactAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Compact &#128712;</label>
+						<div class="spacing" style="width:4%"></div>
+						<input type="checkbox" style="width:5%" name="attr_forearmAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
+						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
+						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
+						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
+						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Forearm Weapon Mount &#128712;</label>
+						<!-- end of line -->
+						<input type="checkbox" style="width:5%" name="attr_suspensorsAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Suspensors &#128712;</label>
+						<div class="spacing" style="width:4%"></div>
+						<input type="checkbox" style="width:5%" name="attr_fireSelectAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Fire Selector &#128712;</label>
+					</div>
+					<div class="quickborder">
+						<label style="width:14%">- Barrel -</label>
+						<div class="spacing" style="width:86%"></div>
+						<!-- end of line -->
+						<input type="checkbox" style="width:5%" name="attr_meleeAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Melee Attachment &#128712;</label>
+						<div class="spacing" style="width:4%"></div>
+						<input type="checkbox" style="width:5%" name="attr_suppBarreAttchl" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Suppressor &#128712;</label>
+						<!-- end of line -->
+						<input type="checkbox" style="width:5%" name="attr_suppBarrelLasAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Las-Suppressor &#128712;</label>
+						<div class="spacing" style="width:52%"></div>
+					</div>
+					<div class="quickborder">
+						<label style="width:18%">- Cogitator -</label>
+						<div class="spacing" style="width:82%"></div>
+						<!-- end of line -->
+						<input type="checkbox" style="width:5%" name="attr_motionPredAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Motion Predictor &#128712;</label>
+						<div class="spacing" style="width:4%"></div>
+						<input type="checkbox" style="width:5%" name="attr_voxOpAttch" value="1"/>
+						<div class="spacing" style="width:1%"></div>
+						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Vox-Operated &#128712;</label>
+						<!-- end of line -->
+					</div>
+				</div>
 				<!-- end of line -->
 				<textarea style="height:65px" name="attr_rangedweaponspecial" placeholder="Special Qualities"></textarea>
                 <!-- end of line -->
@@ -4900,7 +4988,6 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 		var clipName;
 		var clipAmmo;
 		var clipMax;
-		var spareAmmo;
 		var myDice = parseInt(values["repeating_rangedweapons_gundice"]) || 0;
 		var myGunDice;
 		var activeAmmoType = parseInt(values["repeating_rangedweapons_activeAmmo"]) || 0;
@@ -4914,27 +5001,22 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 			clipName = values["repeating_rangedweapons_Ammo1name"];
 			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo1clipsize"]) || 0;
 			clipMax = parseInt(values["repeating_rangedweapons_Ammo1clipmax"]) || 0;
-			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo1totalrounds"]) || 0;
 		} else if (activeAmmoType == 2) {
 			clipName = values["repeating_rangedweapons_Ammo2name"];
 			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo2clipsize"]) || 0;
 			clipMax = parseInt(values["repeating_rangedweapons_Ammo2clipmax"]) || 0;
-			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo2totalrounds"]) || 0;
 		} else if (activeAmmoType == 3) {
 			clipName = values["repeating_rangedweapons_Ammo3name"];
 			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo3clipsize"]) || 0;
 			clipMax = parseInt(values["repeating_rangedweapons_Ammo3clipmax"]) || 0;
-			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo3totalrounds"]) || 0;
 		} else if (activeAmmoType == 4) {
 			clipName = values["repeating_rangedweapons_Ammo4name"];
 			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo4clipsize"]) || 0;
 			clipMax = parseInt(values["repeating_rangedweapons_Ammo4clipmax"]) || 0;
-			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo4totalrounds"]) || 0;
 		} else if (activeAmmoType == 5) {
 			clipName = values["repeating_rangedweapons_Ammo5name"];
 			clipAmmo = parseInt(values["repeating_rangedweapons_Ammo5clipsize"]) || 0;
 			clipMax = parseInt(values["repeating_rangedweapons_Ammo5clipmax"]) || 0;
-			spareAmmo = parseInt(values["repeating_rangedweapons_Ammo5totalrounds"]) || 0;
 		}
 		
 		if (actionType == 0) {
