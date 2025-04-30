@@ -1349,25 +1349,6 @@
             </div><!--hbody closing-->
 				<!-- end of line -->
                 <!-- Ammunition Management -->
-				<!--<div class="customSelect" style="width:7%">
-					<span class="customSelect" name="attr_activeammo"></span>
-					<input type="checkbox" name="attr_activeammo_toggle" value="1">
-					<div class="customSelect-options">
-						<button type="action" class="customSelect-opt1" name="act_set_activeammo_1"><span class="iconBoltShell1-1"/></button>
-						<button type="action" class="customSelect-opt2" name="act_set_activeammo_2"><span class="iconBoltShell2-1"/></button>
-						<button type="action" class="customSelect-opt3" name="act_set_activeammo_3"><span class="iconBoltShell3-1"/></button>
-						<button type="action" class="customSelect-opt4" name="act_set_activeammo_4"><span class="iconBoltShell4-1"/></button>
-						<button type="action" class="customSelect-opt5" name="act_set_activeammo_5"><span class="iconBoltShell5-1"/></button>
-					</div>
-				</div>
-				
-				<select name="attr_activeammo" class="ammo-choice" style="width:7%">
-					<option value="1" selected><span class="iconBoltShell1"/></option>
-					<option value="2"><span class="iconBoltShell2"/></option>
-					<option value="3"><span class="iconBoltShell3"/></option>
-					<option value="4"><span class="iconBoltShell4"/></option>
-					<option value="5"><span class="iconBoltShell5"/></option>
-				</select>-->
 				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
 				<input name="attr_Ammo1name" class="ammoElement1" style="width:53%" type="text" placeholder="Ammo Type 1" title="Ammunition Type 1"/>
 				<input name="attr_Ammo2name" class="ammoElement2" style="width:53%" type="text" placeholder="Ammo Type 2" title="Ammunition Type 2"/>
@@ -1375,9 +1356,6 @@
 				<input name="attr_Ammo4name" class="ammoElement4" style="width:53%" type="text" placeholder="Ammo Type 4" title="Ammunition Type 4"/>
 				<input name="attr_Ammo5name" class="ammoElement5" style="width:53%" type="text" placeholder="Ammo Type 5" title="Ammunition Type 5"/>
 				<label style="width:2%"></label>
-                <!--<button name="roll_RangedReload" type="roll" style="width:14%" title="Rolls Weapon Damage"
-                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
-                    <label>Reload</label></button>-->
 				<label style="width:16%">Rld. Speed</label>
 				<select name="attr_Rangedweaponreload" style="width:14%">
                     <option disabled style="background:gray;font-weight:bold;color:white;">Reload Speed</option>
@@ -1392,7 +1370,6 @@
                 </select>
 				<label style="width:1%"></label>
 				<button style="width:14%" type="action" name="act_gunreload" title="Rolls Ballistic Skill + Modifiers">Reload</button>
-                <!--<input type="hidden" name="attr_gunroll001"/>-->
 				<!-- end of line -->
 				<!-- end of line -->
 				<!-- end of line -->
