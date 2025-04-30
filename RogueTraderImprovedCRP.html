@@ -1109,19 +1109,19 @@
 				<div class="spacing" style="width:0.5%"></div>
 				<input type="hidden" name="attr_activeammo" class="ammotoggle"/>
                 <button class="ammoElement1" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 1)"
-                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen [[(@{Rangedweaponpen} + @{Ammo1penmod})]] vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
 				<button class="ammoElement2" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 2)"
-                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen [[(@{Rangedweaponpen} + @{Ammo2penmod})]] vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
 				<button class="ammoElement3" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 3)"
-                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen [[(@{Rangedweaponpen} + @{Ammo3penmod})]] vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
 				<button class="ammoElement4" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 4)"
-                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen [[(@{Rangedweaponpen} + @{Ammo4penmod})]] vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
 				<button class="ammoElement5" name="roll_RangedDamage" type="roll" style="width:14%" title="Rolls Weapon Damage (Ammo 5)"
-                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen @{Rangedweaponpen} vs AP}} {{xd10=[[1d10!]]}}">
+                value="@{gmroll}&{template:custom} {{name=@{character_name}'s @{Rangedweaponname} deals}} @{gunquality} {{t1=@{Rangedweapontype} Damage!}} {{p1=Pen [[(@{Rangedweaponpen} + @{Ammo5penmod})]] vs AP}} {{xd10=[[1d10!]]}}">
                     <label>Damage</label></button>
 				<div class="spacing" style="width:0.5%"></div>
                 <button name="roll_rangedweaponspecial" type="roll" style="width:9%" title="Show Weapon Qualities in Chat"
@@ -1185,13 +1185,10 @@
 				<input type="checkbox" style="width:3%" name="attr_hiderangedweaponspecial" value="1" class="arrow icon" title="Hide Special Qualities"></input>
 				<!-- end of line -->
 				<input type="hidden" name="attr_Rangedweaponatkmodgen" value="0"/>
-				<input type="hidden" name="attr_Rangedweaponatkmodsingle" value="0"/>
-				<input type="hidden" name="attr_Rangedweaponatkmodsingleain" value="0"/>
-				<input type="hidden" name="attr_Rangedweaponatkmodsemi" value="0"/>
-				<input type="hidden" name="attr_Rangedweaponatkmodsemiaim" value="0"/>
-				<input type="hidden" name="attr_Rangedweaponatkmodfull" value="0"/>
-				<input type="hidden" name="attr_Rangedweaponatkmodfullaim" value="0"/>
-				<input type="hidden" name="attr_Rangedweaponatkmodsuppress" value="0"/>
+				<input type="hidden" name="attr_Rangedweaponatkmodsingle" value="0+@{rdsScopeAttch}+@{omniScopeAttch}"/>
+				<input type="hidden" name="attr_Rangedweaponatkmodsemi" value="0+@{motionPredAttch}"/>
+				<input type="hidden" name="attr_Rangedweaponatkmodfull" value="0+@{motionPredAttch}"/>
+				<input type="hidden" name="attr_Rangedweaponatkmodsuppress" value="0+@{motionPredAttch}"/>
 			<div class="hbody quickborder">
 				<label style="width:34%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);text-align:center;">Weapon Qualities</label>
                 <div class="spacing" style="width:1%"></div>
@@ -1233,29 +1230,30 @@
                 </select>-->
 				<div class="spacing" style="width:2.5%"></div>
 				<label style="width:22.5%">Special Quality</label>
+				<input type="hidden" name="attr_AmmodmgmodValue" value="0"/>
                 <select name="attr_gunquality" style="width:16%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Weapon Quality</option>
-                    <option selected value="{{d1=?{Hits|1,[[@{rangedweapondamage}]]|2,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]]
-                        |3,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]]|4,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]]
-                        |5,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]]|6,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]]
-                        |7,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]]
-                        |8,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]]
-                        |9,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]]
-                        |10,[[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]] [[@{rangedweapondamage}]]}}}"
-                    >None</option>
-                    <option value="{{d1= ?{Tearing Hits|1,[[{@{rangedweapondamage}+1d10&amp;#125;d1]]
-                        |2,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]|3,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]
-                        |4,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]
-                        |5,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]
-                        |6,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]
-                        |7,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]
-                        |8,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]
-                        |9,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]
-                        |10,[[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]] [[{@{rangedweapondamage}+1d10&amp;#125;d1]]} }}"
-                    >Tearing</option>
-                    <option value="{{flame=[[@{rangedweapondamage}]] }}">Flame</option>
-                    <option value="{{d1= Smokescreen Range [[3d10]]m diameter&#10;&#10;Screen lasts [[2d10]] Rounds}}">Smoke</option>
-                    <option disabled style="background:gray;font-weight:bold;color:white">See WIKI for Proven Quality</option>
+					<option selected value="{{d1=?{Hits|1,[[@{rangedweapondamage}+@{AmmodmgmodValue}]]|2,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
+						|3,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]|4,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
+						|5,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]|6,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
+						|7,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
+						|8,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
+						|9,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
+						|10,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]}}}"
+					>None</option>
+					<option value="{{d1= ?{Tearing Hits|1,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]
+						|2,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]|3,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]
+						|4,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]
+						|5,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]
+						|6,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]
+						|7,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]
+						|8,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]
+						|9,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]
+						|10,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}]]} }}"
+					>Tearing</option>
+					<option value="{{flame=[[@{rangedweapondamage}+@{AmmodmgmodValue}]] }}">Flame</option>
+					<option value="{{d1= Smokescreen Range [[3d10]]m diameter&#10;&#10;Screen lasts [[2d10]] Rounds}}">Smoke</option>
+					<option disabled style="background:gray;font-weight:bold;color:white">See WIKI for Proven Quality</option>
                 </select>
 				<!-- end of line -->
 				<div class="spacing" style="width:1%"></div>                
@@ -1304,20 +1302,15 @@
 						<div class="spacing" style="width:4%"></div>
 						<input type="checkbox" style="width:5%" name="attr_forearmAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
-						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
-						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
-						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
-						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
-						<!-- RESUME ATTACHMENT DESCRIPTIONS HERE! -->
-						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Forearm Weapon Mount &#128712;</label>
+						<label style="width:42%" class="help" title="Forearm Weapon Mounting&#10;&#10;Upgrades:  Primitive, Las, Solid Projectile, Bolt, or Melta&#10;pistol.&#10;&#10;This heavy bracing allows a single ranged weapon to be&#10;mounted along the arm, with specific hand movements&#10;triggering the weapon. It allows the user to keep both&#10;hands free, and can have a strong visual impression on&#10;their foes as fire seems to appear from the user’s&#10;outstretched arms. This upgrade reduces the Weapon’s&#10;range by 30%.">Forearm Weapon Mount &#128712;</label>
 						<!-- end of line -->
 						<input type="checkbox" style="width:5%" name="attr_suspensorsAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
-						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Suspensors &#128712;</label>
+						<label style="width:42%" class="help" title="Suspensors&#10;&#10;Upgrades: Any Heavy weapon.&#10;&#10;These anti-grav plates and studs attach to a weapon or&#10;equipment, making the use of heavy or cumbersome devices&#10;much easier by offsetting some of their weight. They are&#10;often used by elite troops on their heavy weapons. Suspensors&#10;reduce the weight of a weapon by one-half. When firing a&#10;weapon with suspensors, the operator counts as having the&#10;Auto-stabilized Trait—he always counts as braced and may&#10;fire the weapon on semi- or full-automatic as a Half Action.">Suspensors &#128712;</label>
 						<div class="spacing" style="width:4%"></div>
 						<input type="checkbox" style="width:5%" name="attr_fireSelectAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
-						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Fire Selector &#128712;</label>
+						<label style="width:42%" class="help" title="Fire Selector&#10;&#10;Upgrades:  (Bolt) and (SP) Pistols or (SP) and (Bolt) Basic&#10;Weapons.&#10;&#10;For weapons that can use differing ammunition rounds, a&#10;shot selector can be fitted for ease of switching from one&#10;type to another. A weapon with a fire selector can have up&#10;to three different clips added. At the start of the shooter’s&#10;Turn, he can use his fire selector to choose which clip he&#10;wishes to draw ammo from that round.">Fire Selector &#128712;</label>
 					</div>
 					<div class="quickborder">
 						<label style="width:14%">- Barrel -</label>
@@ -1325,28 +1318,28 @@
 						<!-- end of line -->
 						<input type="checkbox" style="width:5%" name="attr_meleeAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
-						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Melee Attachment &#128712;</label>
+						<label style="width:42%" class="help" title="Melee Attachment&#10;&#10;Upgrades: Any Basic ranged weapon can have melee attachments.&#10;&#10;Bayonets, chain blades, and other long-bladed combat attachments&#10;can be fitted to most ranged weapons, making them more useful in&#10;assaults. A weapon with a melee attachment counts as a spear in&#10;close combat.">Melee Attachment &#128712;</label>
 						<div class="spacing" style="width:4%"></div>
 						<input type="checkbox" style="width:5%" name="attr_suppBarreAttchl" value="1"/>
 						<div class="spacing" style="width:1%"></div>
-						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Suppressor &#128712;</label>
+						<label style="width:42%" class="help" title="Suppressor&#10;&#10;Upgrades: Stub revolver, stub automatic, hand cannon,&#10;autogun, needle rifle, and needle pistol.&#10;&#10;Suppressors dampen the noise from a weapon’s discharge&#10;through clever use of air expansion chambers around the&#10;barrel of the weapon, hindering detection of the shot.&#10;Awareness Tests to hear shots made with a suppressed&#10;weapon suffer an additional –20 penalty and can only be&#10;attempted at half the normal distance.">Suppressor &#128712;</label>
 						<!-- end of line -->
 						<input type="checkbox" style="width:5%" name="attr_suppBarrelLasAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
-						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Las-Suppressor &#128712;</label>
+						<label style="width:42%" class="help" title="Las-Suppressor&#10;&#10;Upgrades: Any Pistol or Basic Las weapon.&#10;&#10;Las-Supressors are about as far away from their more traditional&#10;counterparts as can be. Where a traditional Suppressor seeks to&#10;dampen the sharp crack of a weapon discharge, a Las-Supressor&#10;instead seeks to decrease the volume of that discharge before it&#10;even occurs. Resembling more an extension to the chassis of the&#10;Lasgun than anything, Las-Supressors are actually an array of&#10;parallel feed circuits and resistance capacitors that replace the&#10;standard single feed circuit between the fast-discharge generator&#10;and the beam emitter. This smoothes out the current and softens&#10;the usual snap of a Lasgun down to a far less audible "click". Awareness Tests to hear shots made with a Las-Suppressed Las Weapon suffer an additional -20 penalty and can only be attempted at half the normal distance.">Las-Suppressor &#128712;</label>
 						<div class="spacing" style="width:52%"></div>
 					</div>
 					<div class="quickborder">
 						<label style="width:18%">- Cogitator -</label>
 						<div class="spacing" style="width:82%"></div>
 						<!-- end of line -->
-						<input type="checkbox" style="width:5%" name="attr_motionPredAttch" value="1"/>
+						<input type="checkbox" style="width:5%" name="attr_motionPredAttch" value="10"/>
 						<div class="spacing" style="width:1%"></div>
-						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Motion Predictor &#128712;</label>
+						<label style="width:42%" class="help" title="Motion Predictor&#10;&#10;Upgrades: Any non-primitive ranged weapon capable of Semi-&#10;Auto or Full Auto fire.&#10;&#10;A complex target-tracking cogitator in this device is activated&#10;once the user has sighted the desired target. The Predictor then&#10;tracks the target, and when the trigger is pulled will chase the&#10;target with all the rounds in a clip in one long burst. A Motion&#10;Predictor adds a +10% bonus to Ballistic Skill Tests, but only&#10;functions when the weapon is fired on semi-automatic or fully&#10;automatic modes.">Motion Predictor &#128712;</label>
 						<div class="spacing" style="width:4%"></div>
 						<input type="checkbox" style="width:5%" name="attr_voxOpAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
-						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Vox-Operated &#128712;</label>
+						<label style="width:42%" class="help" title="Vox Operated&#10;&#10;Upgrades: Any non-primitive weapon.&#10;&#10;Specially coded vox receivers are integrated into the&#10;weapon’s trigger mechanisms, so that they user can&#10;operate it by voice if needed. Users can also operate&#10;the shot selector and switch firing modes where&#10;applicable merely by speaking the appropriate command.&#10;In the case of powered close combat weapons such&#10;as Power Swords or Chainswords, the activation mechanisms&#10;can be controlled by voice. For security reasons each&#10;receiver is usually keyed to just one voice pattern.&#10;Additionally, if the weapon is equipped with a fire&#10;selector, the operation of that upgrade may also be&#10;controlled simply by speaking aloud.">Vox-Operated &#128712;</label>
 						<!-- end of line -->
 					</div>
 				</div>
@@ -1600,14 +1593,14 @@
                     <label class="shct">R</label></button>
                 <!-- end of line-->
                 <!-- Melee Attack Macro selectors 2024 version -->
-                <select name="attr_meleeaimbonus" style="width:30%">
+                <select name="attr_meleeaimbonus" style="width:35%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Aim Bonus</option>
                     <option value="0" >No Aim (+0)</option>
                     <option value="10" >Half Aim (+10)</option>
                     <option value="20" >Full Aim (+20)</option>
                 </select>
                 <div class="spacing" style="width:0.5%"></div>
-                <select name="attr_meleeactionbonus" style="width:30%">
+                <select name="attr_meleeactionbonus" style="width:35%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Combat Action</option>
                     <option value="0" selected >Standard A. (+0)</option>
                     <option value="10" >Charge! (+10)</option>
@@ -1615,42 +1608,40 @@
                     <option value="-10" >Guarded A. (-10)</option>
                     <option value="-20" >Called Shot (-20)</option>
                 </select>
-                <div class="spacing" style="width:1.5%"></div>
-                <button name="roll_meleeweaponstun" type="roll" style="width:10%" title="Rolls Weapon Skill -20 (Stun) + Modifiers"
+                <div class="spacing" style="width:3%"></div>
+                <button name="roll_meleeweaponstun" type="roll" style="width:13%" title="Rolls Weapon Skill -20 (Stun) + Modifiers"
                 value="@{gmroll}&{template:custom} {{name=**@{character_name} Strikes to Stun with @{meleeweaponname}**}} {{dosdof=[[(((  ([[(@{WeaponSkill}+@{meleeaimbonus}+@{meleeactionbonus}+(@{meleeweaponmod}) - 20 + ?{Modifier|0})]] - [[1d100cs1cf100]]) * 100 % 999 % 100  )))]] **Degrees**}} {{testtarget= $[[0]] }} {{d100= $[[1]] }} {{stun= }} {{hitloc= [[(1d10 + @{SB})]] Attacker Stun Damage vs Defender's Head&#10;1d10 + TB  + AP (Head)}}">
                     <label>Stun</label></button>
                 <div class="spacing" style="width:0.5%"></div>
-                <button name="roll_meleeweaponparry" type="roll" style="width:10%" title="Rolls Weapon Skill +/- Parry Modifiers"
+                <button name="roll_meleeweaponparry" type="roll" style="width:13%" title="Rolls Weapon Skill +/- Parry Modifiers"
                 value="@{gmroll}&{template:custom} {{name=**@{character_name} tries to Parry with @{meleeweaponname}**}} {{testtarget=[[(@{WeaponSkill}) + (@{meleeparrymod}) + (?{Other Modifiers|0}) ]] }} {{d100=[[1d100cs1cf100]] }} {{parry= }} {{d100h=@{meleeweaponpf}}}">
                     <label>Parry</label></button>
-                <div class="spacing" style="width:0.5%"></div>
+                <!-- end of line-->
+				<label style="width:7%">Rng</label>
+				<input name="attr_meleerangext" style="width:8%" type="text" placeholder="Range" title="Melee Extended Range&#10;&#10;Mostly used by Whips"/>
+				<div class="spacing" style="width:1%"></div>
                 <input style="width:3%" type="checkbox" name="attr_meleeweaponpf" value="[[1d100cf<25cs>26]]" title="Check if this weapon has an active Power Field (Quality)"></input>
                 <div class="spacing" style="width:1%"></div>
-                <label style="width:11%" class="help" title="Fixed Test modifiers for Parry roll&#10;&#10;Example: Balanced Quality (+10)">Mod &#128712;</label>
-                <input name="attr_meleeparrymod" style="width:6%" type="number" value="0"/>
-                <div class="spacing" style="width:1%"></div>
-				
-				<!-- end of line-->
-				<label style="width:7%">Rng</label>
-				<input name="attr_meleerangext" style="width:10%" type="text" placeholder="Range" title="Melee Extended Range&#10;&#10;Mostly used by Whips"/>
-				<div class="spacing" style="width:1%"></div>
 				<label style="width:8%">Dmg</label>
 				<input name="attr_meleeweapondamage" style="width:18%" type="text" placeholder="Damage" title="Damage Dice"/>
 				<div class="spacing" style="width:0.5%"></div>
 				<label style="width:7.5%" title="Strength Bonus is already added to this weapon's Damage Roll">+SB</label>
 				<select name="attr_meleeweapontype" style="width:10%">
 					<option disabled style="background:gray;font-weight:bold;color:white">Damage Type&nbsp;</option>
-					<option value="Energy">(E) Energy</option>
-					<option value="Explosive">(X) Explosive</option>
-					<option value="Impact">(I) Impact</option>
-					<option value="Rending" selected>(R) Rending</option>
+					<option value="Energy">(E)&#8195;Energy</option>
+					<option value="Explosive">(X)&#8195;Explosive</option>
+					<option value="Impact">(I)&#8195;Impact</option>
+					<option value="Rending" selected>(R)&#8195;Rending</option>
 				</select>
 				<div class="spacing" style="width:1%"></div>
 				<label style="width:7%">Pen</label>
 				<input name="attr_meleeweaponpen" style="width:6%" type="number" value="0" title="Penetration"/>
+				<label style="width:11%" class="help" title="Fixed Test modifiers for Parry roll&#10;&#10;Example: Balanced Quality (+10)">Mod &#128712;</label>
+                <input name="attr_meleeparrymod" style="width:6%" type="number" value="0"/>
                 <input style="width:3%" type="checkbox" name="attr_hidemeleeweaponspecial" value="1" class="arrow icon" title="Hide Special Qualities"></input>
                 <!-- end of line-->
-                <div class="hbody">
+                <div class="hbody quickborder">
+					<label style="width:34%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);text-align:center;">Weapon Qualities</label>
 					<label style="width:11%" class="help" title="Fixed Test modifiers for Attack roll&#10;&#10;Example: Best Craftsmanship (+10)">Mod &#128712;</label>
 					<input name="attr_meleeweaponmod" style="width:6%" type="number" value="0"/>
                     <div class="spacing" style="width:1%"></div>
@@ -1864,7 +1855,7 @@
                 <input name="attr_woundstb" type="number" style="width:13%"/>
                 <!--end of line-->
                 <label style="width:75%">Sound Constitution:&emsp;&nbsp;X</label>
-                <input name="attr_woundssc" type="number" style="width:25%"/>
+                <input name="attr_woundssc" type="number" value="0" style="width:25%"/>
                 <!--end of line-->
                 <label style="width:29%">Current:</label>
                 <input name="attr_Wounds" type="number" style="width:25%"/>
@@ -4980,7 +4971,15 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 	"repeating_rangedweapons_Ammo5name",
 	"repeating_rangedweapons_Ammo5clipsize",
 	"repeating_rangedweapons_Ammo5clipmax",
-	"repeating_rangedweapons_Ammo5totalrounds"], function(values) {
+	"repeating_rangedweapons_Ammo5totalrounds",
+	"repeating_rangedweapons_Rangedweaponatkmodgen",
+	"repeating_rangedweapons_Rangedweaponatkmodsingle",
+	"repeating_rangedweapons_Rangedweaponatkmodsemi",
+	"repeating_rangedweapons_Rangedweaponatkmodfull",
+	"repeating_rangedweapons_Rangedweaponatkmodsuppress",
+	"repeating_rangedweapons_rdsScopeAttch",
+	"repeating_rangedweapons_omniScopeAttch",
+	"repeating_rangedweapons_motionPredAttch",], function(values) {
         let diceRoll; //= "@{gmroll}&{template:custom} {{name=@{character_name} attacks with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonus"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + values["repeating_rangedweapons_gundice"] + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
 		var actionType = parseInt(values["repeating_rangedweapons_gunactionbonus"]) || 0;
 		var malfunctionType = 0;
@@ -4996,6 +4995,11 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 		var singleFire = values["repeating_rangedweapons_Rangedweaponsingle"];
 		var semiAuto = parseInt(values["repeating_rangedweapons_Rangedweaponsemi"]) || 0;
 		var fullAuto = parseInt(values["repeating_rangedweapons_Rangedweaponfull"]) || 0;
+		var atkModGeneric = parseInt(values["repeating_rangedweapons_Rangedweaponatkmodgen"]) || 0;
+		var atkModSingle = parseInt(values["repeating_rangedweapons_rdsScopeAttch"]) + parseInt(values["repeating_rangedweapons_omniScopeAttch"]) || 0;
+		var atkModSemi = parseInt(values["repeating_rangedweapons_motionPredAttch"]) || 0;
+		var atkModFull = parseInt(values["repeating_rangedweapons_motionPredAttch"]) || 0;
+		var atkModSuppress = parseInt(values["repeating_rangedweapons_motionPredAttch"]) || 0;
 		
 		if (activeAmmoType == 1) {
 			clipName = values["repeating_rangedweapons_Ammo1name"];
@@ -5111,9 +5115,9 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 			roundsFired = 1;
 			clipAmmoAfter = clipAmmo - roundsFired;
 			if (malfunctionType == 0) {	
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a single shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a single shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModSingle + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
 			} else if (malfunctionType == 1) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a single shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a single shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModSingle + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
 			}		
 		} else if (actionType == 1) {
 			<!-- Semi-Auto Fire Mode -->
@@ -5125,9 +5129,9 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 				clipAmmoAfter = 0;
 			}
 			if (malfunctionType == 0) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModSemi + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
 			} else if (malfunctionType == 1) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModSemi + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
 			}
 		} else if (actionType == 2) {
 			<!-- Full-Auto Fire Mode -->
@@ -5139,18 +5143,18 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 				clipAmmoAfter = 0;
 			}
 			if (malfunctionType == 0) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires an automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires an automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModFull + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
 			} else if (malfunctionType == 1) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires an automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires an automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModFull + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
 			}
 		} else if (actionType == 3) {
 			<!-- Called Shot Fire Mode -->
 			roundsFired = 1;
 			clipAmmoAfter = clipAmmo - roundsFired;
 			if (malfunctionType == 0) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a called shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a called shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModSingle + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
 			} else if (malfunctionType == 1) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a called shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a called shot with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModSingle + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }}";
 			}
 		} else if (actionType == 4) {
 			<!-- Suppressing Fire Mode -->
@@ -5162,9 +5166,9 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 				clipAmmoAfter = 0;
 			}
 			if (malfunctionType == 0) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires automatic suppressing fire with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires automatic suppressing fire with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModFull + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
 			} else if (malfunctionType == 1) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires automatic suppressing fire with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires automatic suppressing fire with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModFull + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
 			}
 		} else if (actionType == 5) {
 			<!-- Run and Gun Semi-Auto Fire Mode -->
@@ -5176,9 +5180,9 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 				clipAmmoAfter = 0;
 			}
 			if (malfunctionType == 0) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModSemi + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
 			} else if (malfunctionType == 1) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving semi-automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModSemi + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/2 Degrees of Success, Maximum of " + roundsFired +"}}";
 			}
 		} else if (actionType == 6) {
 			<!-- Run and Gun Full-Auto Fire Mode -->
@@ -5190,9 +5194,9 @@ on("clicked:repeating_rangedweapons:guncrp", function(eventInfo) {
 				clipAmmoAfter = 0;
 			}
 			if (malfunctionType == 0) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModFull + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100a= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
 			} else if (malfunctionType == 1) {
-				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
+				diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} fires a moving automatic burst with " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{dosdof=[[(((  ([[(@{BallisticSkill} + (" + values["repeating_rangedweapons_gunaimbonusvalue"] + ") + (" + values["repeating_rangedweapons_gunrangebonus"] + ") + (" + values["repeating_rangedweapons_rangedweaponmod"] + ") + (" + values["repeating_rangedweapons_gunactionbonusvalue"] + ") + (" + atkModGeneric + ") + (" + atkModFull + ") + (?{Modifier|0}))]] - [[" + myGunDice + "]]) * 100 % 999 % 100  )))]] Degrees}} {{testtarget= $[[0]] }} {{d100b= $[[1]] }} {{attack= }} {{hitloc= $[[1]] }} {{desc=Rounds Fired: " + roundsFired + ", +1 Hit/Degree of Success, Maximum of " + roundsFired +"}}";
 			}
 		} else if (actionType == 7) {
 			<!-- ERROR: Fire Mode Not Available -->
@@ -5307,6 +5311,128 @@ on("change:repeating_rangedweapons:gunaimbonus", function(eventInfo) {
 	});
 });
 
+on("change:repeating_rangedweapons:photoScopeAttch", function(eventInfo) {
+	if(eventInfo.sourceType !== "sheetworker") {
+		console.log("Function called");
+		getAttrs(["repeating_rangedweapons_photoScopeAttch"], function(values) {
+			let changeValue = parseInt(values["repeating_rangedweapons_photoScopeAttch"]) || 0;
+			if (changeValue == 1) {
+				setAttrs({
+					/*repeating_rangedweapons_preyScopeAttch: 0,*/
+					repeating_rangedweapons_preyScopeAttch: 0,
+					repeating_rangedweapons_rdsScopeAttch: 0,
+					repeating_rangedweapons_teleScopeAttch: 0,
+					repeating_rangedweapons_omniScopeAttch: 0
+				});
+			}
+		});
+	}
+});
+on("change:repeating_rangedweapons:preyScopeAttch", function(eventInfo) {
+	if(eventInfo.sourceType !== "sheetworker") {
+		console.log("Function called");
+		getAttrs(["repeating_rangedweapons_preyScopeAttch"], function(values) {
+			let changeValue = parseInt(values["repeating_rangedweapons_preyScopeAttch"]) || 0;
+			if (changeValue == 1) {
+				setAttrs({
+					repeating_rangedweapons_photoScopeAttch: 0,
+					/*repeating_rangedweapons_preyScopeAttch: 0,*/
+					repeating_rangedweapons_rdsScopeAttch: 0,
+					repeating_rangedweapons_teleScopeAttch: 0,
+					repeating_rangedweapons_omniScopeAttch: 0
+				});
+			}
+		});
+	}
+});
+on("change:repeating_rangedweapons:rdsScopeAttch", function(eventInfo) {
+	if(eventInfo.sourceType !== "sheetworker") {
+		console.log("Function called");
+		getAttrs(["repeating_rangedweapons_rdsScopeAttch"], function(values) {
+			let changeValue = parseInt(values["repeating_rangedweapons_rdsScopeAttch"]) || 0;
+			if (changeValue == 10) {
+				setAttrs({
+					repeating_rangedweapons_photoScopeAttch: 0,
+					repeating_rangedweapons_preyScopeAttch: 0,
+					/*repeating_rangedweapons_rdsScopeAttch: 0,*/
+					repeating_rangedweapons_teleScopeAttch: 0,
+					repeating_rangedweapons_omniScopeAttch: 0
+				});
+			}
+		});
+	}
+});
+on("change:repeating_rangedweapons:teleScopeAttch", function(eventInfo) {
+	if(eventInfo.sourceType !== "sheetworker") {
+		console.log("Function called");
+		getAttrs(["repeating_rangedweapons_teleScopeAttch"], function(values) {
+			let changeValue = parseInt(values["repeating_rangedweapons_teleScopeAttch"]) || 0;
+			if (changeValue == 1) {
+				setAttrs({
+					repeating_rangedweapons_photoScopeAttch: 0,
+					repeating_rangedweapons_preyScopeAttch: 0,
+					repeating_rangedweapons_rdsScopeAttch: 0,
+					/*repeating_rangedweapons_teleScopeAttch: 0,*/
+					repeating_rangedweapons_omniScopeAttch: 0
+				});
+			}
+		});
+	}
+});
+on("change:repeating_rangedweapons:omniScopeAttch", function(eventInfo) {
+	if(eventInfo.sourceType !== "sheetworker") {
+		console.log("Function called");
+		getAttrs(["repeating_rangedweapons_omniScopeAttch"], function(values) {
+			let changeValue = parseInt(values["repeating_rangedweapons_omniScopeAttch"]) || 0;
+			if (changeValue == 10) {
+				setAttrs({
+					repeating_rangedweapons_photoScopeAttch: 0,
+					repeating_rangedweapons_preyScopeAttch: 0,
+					repeating_rangedweapons_rdsScopeAttch: 0,
+					repeating_rangedweapons_teleScopeAttch: 0,
+					/*repeating_rangedweapons_omniScopeAttch: 0*/
+				});
+			}
+		});
+	}
+});
+
+on("change:repeating_rangedweapons:activeammo change:repeating_rangedweapons:Ammo1dmgmod change:repeating_rangedweapons:Ammo2dmgmod change:repeating_rangedweapons:Ammo3dmgmod change:repeating_rangedweapons:Ammo4dmgmod change:repeating_rangedweapons:Ammo5dmgmod", function(eventInfo) {
+	console.log("Ammo Type Changed");
+	getAttrs(["repeating_rangedweapons_activeammo",
+	"repeating_rangedweapons_Ammo1dmgmod",
+	"repeating_rangedweapons_Ammo2dmgmod",
+	"repeating_rangedweapons_Ammo3dmgmod",
+	"repeating_rangedweapons_Ammo4dmgmod",
+	"repeating_rangedweapons_Ammo5dmgmod",], function(values) {
+		let selectedAmmo = parseInt(values["repeating_rangedweapons_activeammo"]) || 0;
+		let dmgModValue;
+		if (selectedAmmo == 0) {
+			dmgModValue = parseInt(values["repeating_rangedweapons_Ammo1dmgmod"]) || 0;
+			setAttrs({
+				repeating_rangedweapons_activeammo: 0,
+				repeating_rangedweapons_AmmodmgmodValue: dmgModValue
+			});
+		} else {
+			if (selectedAmmo == 1) {
+				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo1dmgmod"]) || 0;
+			} else if (selectedAmmo == 2) {
+				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo2dmgmod"]) || 0;
+			} else if (selectedAmmo == 3) {
+				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo3dmgmod"]) || 0;
+			} else if (selectedAmmo == 4) {
+				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo4dmgmod"]) || 0;
+			} else if (selectedAmmo == 5) {
+				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo5dmgmod"]) || 0;
+			}
+			
+			setAttrs({
+				repeating_rangedweapons_AmmodmgmodValue: dmgModValue
+			});
+		}
+	});
+});
+
 /* --- script for the crp reload macro --- */
 on("clicked:repeating_rangedweapons:gunreload", function(eventInfo) {
 	console.log("Function called");
@@ -5377,44 +5503,48 @@ on("clicked:repeating_rangedweapons:gunreload", function(eventInfo) {
 			clipAmmo = 0;
 		}
 		
-		clipDelta = clipMax - clipAmmo;
-		
-		if (spareRounds > clipDelta) {
-			clipAmmoReload = clipMax;
-			spareRoundsAfter = spareRounds - clipDelta;
-		} else if (clipDelta > spareRounds) {
-			clipAmmoReload = clipAmmo + spareRounds;
-			spareRoundsAfter = 0;
+		if (spareRounds > 0) {
+			clipDelta = clipMax - clipAmmo;
+			
+			if (spareRounds > clipDelta) {
+				clipAmmoReload = clipMax;
+				spareRoundsAfter = spareRounds - clipDelta;
+			} else if (clipDelta > spareRounds) {
+				clipAmmoReload = clipAmmo + spareRounds;
+				spareRoundsAfter = 0;
+			}
+			
+			if (activeAmmoType == 1) {
+				setAttrs({
+					repeating_rangedweapons_Ammo1clipsize: clipAmmoReload,
+					repeating_rangedweapons_Ammo1totalrounds: spareRoundsAfter
+				});
+			} else if (activeAmmoType == 2) {
+				setAttrs({
+					repeating_rangedweapons_Ammo2clipsize: clipAmmoReload,
+					repeating_rangedweapons_Ammo2totalrounds: spareRoundsAfter
+				});
+			} else if (activeAmmoType == 3) {
+				setAttrs({
+					repeating_rangedweapons_Ammo3clipsize: clipAmmoReload,
+					repeating_rangedweapons_Ammo3totalrounds: spareRoundsAfter
+				});
+			} else if (activeAmmoType == 4) {
+				setAttrs({
+					repeating_rangedweapons_Ammo4clipsize: clipAmmoReload,
+					repeating_rangedweapons_Ammo4totalrounds: spareRoundsAfter
+				});
+			} else if (activeAmmoType == 5) {
+				setAttrs({
+					repeating_rangedweapons_Ammo5clipsize: clipAmmoReload,
+					repeating_rangedweapons_Ammo5totalrounds: spareRoundsAfter
+				});
+			}
+			
+			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} reloads " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{d1= }} {{t1=" + clipName + " Reloaded}} {{p1=" + clipAmmo + "/" + clipMax + " > " + clipAmmoReload + "/" + clipMax + "}} {{desc=Spare Ammunition Remaining: " + spareRoundsAfter + "}}";
+		} else if (spareRounds == 0 || spareRounds < 0) {
+			diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} reloads " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{d1= }} {{t1=&#x1F4A2; WARNING! &#x1F4A2;}} {{p1= }} {{desc=" + values["repeating_rangedweapons_Rangedweaponname"] + " does not have any more spare ammo for this ammunition type! Swap to a different ammunition type or restock!}}";
 		}
-		
-		if (activeAmmoType == 1) {
-			setAttrs({
-				repeating_rangedweapons_Ammo1clipsize: clipAmmoReload,
-				repeating_rangedweapons_Ammo1totalrounds: spareRoundsAfter
-			});
-		} else if (activeAmmoType == 2) {
-			setAttrs({
-				repeating_rangedweapons_Ammo2clipsize: clipAmmoReload,
-				repeating_rangedweapons_Ammo2totalrounds: spareRoundsAfter
-			});
-		} else if (activeAmmoType == 3) {
-			setAttrs({
-				repeating_rangedweapons_Ammo3clipsize: clipAmmoReload,
-				repeating_rangedweapons_Ammo3totalrounds: spareRoundsAfter
-			});
-		} else if (activeAmmoType == 4) {
-			setAttrs({
-				repeating_rangedweapons_Ammo4clipsize: clipAmmoReload,
-				repeating_rangedweapons_Ammo4totalrounds: spareRoundsAfter
-			});
-		} else if (activeAmmoType == 5) {
-			setAttrs({
-				repeating_rangedweapons_Ammo5clipsize: clipAmmoReload,
-				repeating_rangedweapons_Ammo5totalrounds: spareRoundsAfter
-			});
-		}
-		
-		diceRoll = "@{gmroll}&{template:custom} {{name=@{character_name} reloads " + values["repeating_rangedweapons_Rangedweaponname"] + "}} {{d1= }} {{t1=" + clipName + " Reloaded}} {{p1=" + clipAmmo + "/" + clipMax + " > " + clipAmmoReload + "/" + clipMax + "}} {{desc=Spare Ammunition Remaining: " + spareRoundsAfter + "}}";
 		
 		startRoll(diceRoll, (r) => {
             finishRoll(r.rollId);

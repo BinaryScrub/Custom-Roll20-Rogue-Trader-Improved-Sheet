@@ -904,6 +904,14 @@
     display: none;
 }
 
+/*the checkbox that allows to hide divs with hbody9*/
+.charsheet .rti input.arrow9 {
+    position: relative;
+}
+.charsheet .rti input.arrow9:checked ~ div.hbody9 {
+    display: none;
+}
+
 
 /*radio input and div used in ship weapons*/
 .charsheet .rti div[id="shipwp1"],
