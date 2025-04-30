@@ -49,6 +49,34 @@
     display: block;
 }
 
+/*Weapon Properties Tabs setup, this hides and shows content*/ {}
+.charsheet .rti .attachments,
+.charsheet .rti .weaponProps,
+.charsheet .rti .weaponDesc {
+    display: none;
+}
+.charsheet .rti .weaponpropstoggle[value="attachments"] ~ div.attachments,
+.charsheet .rti .weaponpropstoggle[value="weaponProps"] ~ div.weaponProps,
+.charsheet .rti .weaponpropstoggle[value="weaponDesc"] ~ div.weaponDesc {
+    display: block;
+}
+
+/*Weapon Attachments Tabs setup, this hides and shows content*/ {}
+.charsheet .rti .weapOptics,
+.charsheet .rti .weapFrames,
+.charsheet .rti .weapBarrels,
+.charsheet .rti .weapCogitator,
+.charsheet .rti .weapMisc {
+    display: none;
+}
+.charsheet .rti .weaponattachtoggle[value="weapOptics"] ~ div.weapOptics,
+.charsheet .rti .weaponattachtoggle[value="weapFrames"] ~ div.weapFrames,
+.charsheet .rti .weaponattachtoggle[value="weapBarrels"] ~ div.weapBarrels,
+.charsheet .rti .weaponattachtoggle[value="weapCogitator"] ~ div.weapCogitator,
+.charsheet .rti .weaponattachtoggle[value="weapMisc"] ~ div.weapMisc {
+    display: block;
+}
+
 /* action button used for CRP */ {}
 .charsheet .rti button[type="action"] {
     width: 100%;
@@ -353,6 +381,28 @@
     font-size: 20px;
     font-weight: bold;
 }
+.charsheet .rti label.weapPropButton {
+    height: 24px;
+    line-height: 24px;
+	width: 33%;
+}
+.charsheet .rti label.weapPropButton > div {
+    height: 24px;
+    line-height: 24px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.charsheet .rti label.weapAttachButton {
+    height: 20px;
+    line-height: 20px;
+	width: 19.2%;
+}
+.charsheet .rti label.weapAttachButton > div {
+    height: 20px;
+    line-height: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
 .charsheet .rti input.hidden {
     display: none;
 }
@@ -516,30 +566,87 @@
 }
 
 /* Background Transparencies for Weapons */
-.charsheet .rti .weapontypeToggle[value="Thrown"] ~ div.quickborder {
+.charsheet .rti .weapontypeToggle[value="Thrown"] ~ div.weapback {
 	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/f1be634017505ea1d392680f6b9615d33033f6f3/images/icons/General/Grenade-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
-    background-size: 20%;
+    background-size: 16%;
 }
-.charsheet .rti .weapontypeToggle[value="Pistol"] ~ div.quickborder {
+.charsheet .rti .weapontypeToggle[value="Pistol"] ~ div.weapback {
 	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/f1be634017505ea1d392680f6b9615d33033f6f3/images/icons/General/bolter-mkv-02-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
-    background-size: 40%;
+    background-size: 37%;
 }
-.charsheet .rti .weapontypeToggle[value="Basic"] ~ div.quickborder {
+.charsheet .rti .weapontypeToggle[value="Basic"] ~ div.weapback {
 	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/51934475f84dae770201651ccb8f60cf3f5556c8/images/icons/General/imperial-lasgun-faded-cropped.svg?sanitize=true");
 	background-repeat: no-repeat;
     background-size: 70%;
 }
-.charsheet .rti .weapontypeToggle[value="Heavy"] ~ div.quickborder {
+.charsheet .rti .weapontypeToggle[value="Heavy"] ~ div.weapback {
 	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/f1be634017505ea1d392680f6b9615d33033f6f3/images/icons/General/Heavy-Support-%5BBattlefield-Role%5D-faded.svg?sanitize=true");
 	background-repeat: no-repeat;
-    background-size: 33%;
+    background-size: 25%;
 }
-.charsheet .rti .weapontypeToggle[value="Melee"] ~ div.quickborder {
+.charsheet .rti .weapontypeToggle[value="Melee"] ~ div.weapback {
 	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/136f712d8fab699c054b47a59fdaac45743f59af/images/icons/General/sword-01-faded%20rotated.svg?sanitize=true");
 	background-repeat: no-repeat;
     background-size: 100%;
+}
+
+/* Background colors for Weapon strips */
+.charsheet .rti .weapontypeToggle[value="Thrown"] ~ div.weapColor {
+	background-color: rgb(218, 165, 32, 1.0);
+	background-blend-mode: multiply;
+	display: inline-block;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+	margin: 0;
+    padding: 0;
+    border: 0;
+}
+.charsheet .rti .weapontypeToggle[value="Pistol"] ~ div.weapColor {
+	background-color: rgb(218, 165, 32, 1.0);
+	background-blend-mode: multiply;
+	display: inline-block;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+	margin: 0;
+    padding: 0;
+    border: 0;
+}
+.charsheet .rti .weapontypeToggle[value="Basic"] ~ div.weapColor {
+	background-color: rgb(218, 165, 32, 1.0);
+	background-blend-mode: multiply;
+	display: inline-block;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+	margin: 0;
+    padding: 0;
+    border: 0;
+}
+.charsheet .rti .weapontypeToggle[value="Heavy"] ~ div.weapColor {
+	background-color: rgb(218, 165, 32, 1.0);
+	background-blend-mode: multiply;
+	display: inline-block;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+	margin: 0;
+    padding: 0;
+    border: 0;
+}
+.charsheet .rti .weapontypeToggle[value="Melee"] ~ div.weapColor {
+	background-color: rgb(218, 165, 32, 1.0);
+	background-blend-mode: multiply;
+	display: inline-block;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+	margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 /* Disabled readonly fields */{}

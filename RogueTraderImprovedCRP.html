@@ -1092,7 +1092,6 @@
     <div class="leftbox">
         <h2>Ranged Weapons &#11216;</h2>
         <fieldset class="repeating_rangedweapons">
-			<input type="hidden" name="attr_Rangedweaponclass" class="weapontypeToggle"/>
             <div class="quickborder">
                 <input name="attr_Rangedweaponname" style="width:61.5%; font-weight:bold" type="text" placeholder="Weapon Name" title="Weapon Name"/>
                 <div class="spacing" style="width:0.5%"></div>
@@ -1128,6 +1127,11 @@
                 value="@{gmroll}&{template:custom} {{name=**@{Rangedweaponname}**}} {{d1=Rng: **@{Rangedweaponrange}**&nbsp;&nbsp;RoF: **@{Rangedweaponsingle}/@{Rangedweaponsemi}/@{Rangedweaponfull}**&nbsp;&nbsp;Rld: **@{Rangedweaponreload}**}} {{desc=@{rangedweaponspecial} }}">
                     <label class="shct">R</label></button>
                 <!-- end of line -->
+				<input type="hidden" name="attr_Rangedweaponclass" class="weapontypeToggle"/>
+				<div class="weapColor" style="width:2%"></div>
+				<input type="hidden" name="attr_Rangedweaponclass" class="weapontypeToggle"/>
+				<!-- All Rows Below 1st -->
+				<div class="weapback" style="width:98%; display:inline-block;">
                 <!-- Ranged Attack Macro selectors 2024 version -->
                 <select name="attr_gunaimbonus" style="width:33%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Aim Bonus</option>
@@ -1210,7 +1214,7 @@
                     <option value="Best">Best</option>
                 </select>
 				<!-- end of line -->
-				<label style="width:26%">Malfunction Type</label>
+				<label style="width:27%">Malfunction Type</label>
 				<select name="attr_gundice" style="width:33%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Jam Chance</option>
                     <option value="0" selected >Standard (94/96+)</option>
@@ -1228,11 +1232,11 @@
                     <option value="1d100cs1cf101" >Best Craft (No Jam)</option>
                     <option disabled style="background:gray;font-weight:bold;color:white">Reliable rolls 1d10 on jam&nbsp;</option>
                 </select>-->
-				<div class="spacing" style="width:2.5%"></div>
+				<div class="spacing" style="width:1.5%"></div>
 				<label style="width:22.5%">Special Quality</label>
 				<input type="hidden" name="attr_AmmodmgmodValue" value="0"/>
                 <select name="attr_gunquality" style="width:16%">
-                    <option disabled style="background:gray;font-weight:bold;color:white">Weapon Quality</option>
+                    <!--<option disabled style="background:gray;font-weight:bold;color:white">Weapon Quality</option>
 					<option selected value="{{d1=?{Hits|1,[[@{rangedweapondamage}+@{AmmodmgmodValue}]]|2,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
 						|3,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]|4,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
 						|5,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]|6,[[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}]]
@@ -1253,24 +1257,90 @@
 					>Tearing</option>
 					<option value="{{flame=[[@{rangedweapondamage}+@{AmmodmgmodValue}]] }}">Flame</option>
 					<option value="{{d1= Smokescreen Range [[3d10]]m diameter&#10;&#10;Screen lasts [[2d10]] Rounds}}">Smoke</option>
+					<option disabled style="background:gray;font-weight:bold;color:white">See WIKI for Proven Quality</option>-->
+					<option disabled style="background:gray;font-weight:bold;color:white">Weapon Quality</option>
+					<option selected value="{{d1=?{Hits|1,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]|2,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|3,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]|4,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|5,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]|6,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|7,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|8,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|9,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|10,[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]}}}"
+					>None</option>
+					<option value="{{d1= ?{Tearing Hits|1,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|2,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]|3,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|4,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|5,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|6,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|7,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|8,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|9,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]
+						|10,[[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] [[({@{rangedweapondamage}+1d10&amp;#125;d1)+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]]} }}"
+					>Tearing</option>
+					<option value="{{flame=[[@{rangedweapondamage}+@{AmmodmgmodValue}+@{Rangedweapondmgmod}]] }}">Flame</option>
+					<option value="{{d1= Smokescreen Range [[3d10]]m diameter&#10;&#10;Screen lasts [[2d10]] Rounds}}">Smoke</option>
 					<option disabled style="background:gray;font-weight:bold;color:white">See WIKI for Proven Quality</option>
                 </select>
+				<!-- end of line -->                
+				
 				<!-- end of line -->
-				<div class="spacing" style="width:1%"></div>                
-				<label style="width:16%" class="help" title="Miscellaneous modifiers to weapon attack roll.">Misc. Mod</label>
-                <input name="attr_Rangedweaponmod" style="width:9%" type="number" value="0"/>
-				<div class="spacing" style="width:74%"></div> 
+				<input type="hidden" class="weaponpropstoggle" name="attr_weaponTab" value="weaponDesc"/>
+				<div>
+					<label class="fancyButton weapPropButton" title="Weapon Description">
+						<input type="checkbox" name="attr_weaponTab" value="weaponDesc" hidden="true" />
+						<div>Description</div>
+					</label>
+					<div class="spacing" style="width:0.5%"></div>
+					<label class="fancyButton weapPropButton" title="Weapon Attachments and Modifications">
+						<input type="checkbox" name="attr_weaponTab" value="attachments" hidden="true" />
+						<div>Attachments & Mods</div>
+					</label>
+					<div class="spacing" style="width:0.5%"></div>
+					<label class="fancyButton weapPropButton" title="Weapon Properties and Qualities">
+						<input type="checkbox" name="attr_weaponTab" value="weaponProps" hidden="true" />
+						<div>Properties</div>
+					</label>
+				</div>
 				<!-- end of line -->
-				<label style="width:34%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);text-align:center;">Attachments</label>
+				<!--<label style="width:34%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);text-align:center;">Attachments</label>
 				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hiderangedweaponsattach" value="1" class="arrow icon arrow8" title="Hide Attachments"></input>
-				<div class="spacing" style="width:62%"></div>
+				<div class="spacing" style="width:62%"></div>-->
 				<!-- end of line -->
-				<div class="hbody8">
-					<div class="quickborder">
-						<label style="width:14%">- Optics -</label>
-						<div class="spacing" style="width:86%"></div>
-						<!-- end of line -->
+				<input type="hidden" class="weaponpropstoggle" name="attr_weaponTab" value="weaponDesc"/>
+				<div class="weaponDesc">
+					<textarea style="height:65px" name="attr_rangedweaponspecial" placeholder="Special Qualities"></textarea>
+				</div><!-- Weapon Description Tab closing -->
+				<div class="attachments">
+					<input type="hidden" class="weaponattachtoggle" name="attr_weaponAttachTab" value="weapOptics"/>
+					<div>
+						<label class="fancyButton weapAttachButton">
+							<input type="checkbox" name="attr_weaponAttachTab" value="weapOptics" hidden="true" />
+							<div>Optics</div>
+						</label>
+						<div class="spacing" style="width:1%"></div>
+						<label class="fancyButton weapAttachButton">
+							<input type="checkbox" name="attr_weaponAttachTab" value="weapFrames" hidden="true" />
+							<div>Frames</div>
+						</label>
+						<div class="spacing" style="width:1%"></div>
+						<label class="fancyButton weapAttachButton">
+							<input type="checkbox" name="attr_weaponAttachTab" value="weapBarrels" hidden="true" />
+							<div>Barrels</div>
+						</label>
+						<div class="spacing" style="width:1%"></div>
+						<label class="fancyButton weapAttachButton">
+							<input type="checkbox" name="attr_weaponAttachTab" value="weapCogitator" hidden="true" />
+							<div>Cogitators</div>
+						</label>
+						<div class="spacing" style="width:1%"></div>
+						<label class="fancyButton weapAttachButton">
+							<input type="checkbox" name="attr_weaponAttachTab" value="weapMisc" hidden="true" />
+							<div>Misc. Mods</div>
+						</label>
+					</div>
+					<input type="hidden" class="weaponattachtoggle" name="attr_weaponAttachTab" value="weapOptics"/>
+					<div class="weapOptics">
 						<input type="checkbox" style="width:5%" name="attr_photoScopeAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
 						<label style="width:42%" class="help"  title="Photo-Scope&#10;&#10;Upgrades: Any Basic ranged Las, Solid Projectile, Bolt, Primitive or&#10;Plasma weapon. A photo sight counts as a sight and a gun may&#10;only have one sight.&#10;&#10;This is a weapon sight that enhances ambient light levels, improving&#10;the user’s vision and ability to see in the dark. A character using a&#10;Photo Sight suffers no penalties due to darkness.">Photo-Scope &#128712;</label>
@@ -1292,10 +1362,7 @@
 						<label style="width:42%" class="help" title="Omni-Scope&#10;&#10;Upgrades: Any Basic-class Las, Solid Projectile, Bolt,&#10;Primitive or Plasma weapon. An Omni-scope counts as&#10;a sight and a gun may only have one sight.&#10;&#10;A vastly expensive and rare device normally found only in&#10;the hands of legendary assassins or bounty hunters, the&#10;Omni-scope is a cluster of finely-tuned sensor wands linked&#10;to a precision lens. Some of these scopes plug directly into&#10;a bionic cranial port, allowing the user to shoot around&#10;corners without exposing himself—the scope becomes a&#10;“third eye.” The Omni-scope combines the benefits of a&#10;Preysense Sight, Red-Dot-Laser Sight, and Telescopic Sight.">Omni-Scope &#128712;</label>
 						<div class="spacing" style="width:52%"></div>
 					</div>
-					<div class="quickborder">
-						<label style="width:14%">- Frame -</label>
-						<div class="spacing" style="width:86%"></div>
-						<!-- end of line -->
+					<div class="weapFrames">
 						<input type="checkbox" style="width:5%" name="attr_compactAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
 						<label style="width:42%" class="help" title="Compact&#10;&#10;Upgrades: Any Pistol or Basic Las, Solid Projectile, Flame, Bolt,&#10;or Plasma weapon.&#10;&#10;Compact weapons are smaller versions of pistol and basic&#10;weapons favoured by those who prefer concealment over&#10;stopping power. This upgrade halves the weight of the weapon&#10;but also halves its clip size and range as well as reducing its&#10;Damage by 1. Anyone attempting to find a concealed weapon&#10;with the Compact upgrade suffers a –20 penalty to any related&#10;Skill Test (e.g., Awareness, Search).">Compact &#128712;</label>
@@ -1312,10 +1379,7 @@
 						<div class="spacing" style="width:1%"></div>
 						<label style="width:42%" class="help" title="Fire Selector&#10;&#10;Upgrades:  (Bolt) and (SP) Pistols or (SP) and (Bolt) Basic&#10;Weapons.&#10;&#10;For weapons that can use differing ammunition rounds, a&#10;shot selector can be fitted for ease of switching from one&#10;type to another. A weapon with a fire selector can have up&#10;to three different clips added. At the start of the shooter’s&#10;Turn, he can use his fire selector to choose which clip he&#10;wishes to draw ammo from that round.">Fire Selector &#128712;</label>
 					</div>
-					<div class="quickborder">
-						<label style="width:14%">- Barrel -</label>
-						<div class="spacing" style="width:86%"></div>
-						<!-- end of line -->
+					<div class="weapBarrels">
 						<input type="checkbox" style="width:5%" name="attr_meleeAttch" value="1"/>
 						<div class="spacing" style="width:1%"></div>
 						<label style="width:42%" class="help" title="Melee Attachment&#10;&#10;Upgrades: Any Basic ranged weapon can have melee attachments.&#10;&#10;Bayonets, chain blades, and other long-bladed combat attachments&#10;can be fitted to most ranged weapons, making them more useful in&#10;assaults. A weapon with a melee attachment counts as a spear in&#10;close combat.">Melee Attachment &#128712;</label>
@@ -1329,10 +1393,7 @@
 						<label style="width:42%" class="help" title="Las-Suppressor&#10;&#10;Upgrades: Any Pistol or Basic Las weapon.&#10;&#10;Las-Supressors are about as far away from their more traditional&#10;counterparts as can be. Where a traditional Suppressor seeks to&#10;dampen the sharp crack of a weapon discharge, a Las-Supressor&#10;instead seeks to decrease the volume of that discharge before it&#10;even occurs. Resembling more an extension to the chassis of the&#10;Lasgun than anything, Las-Supressors are actually an array of&#10;parallel feed circuits and resistance capacitors that replace the&#10;standard single feed circuit between the fast-discharge generator&#10;and the beam emitter. This smoothes out the current and softens&#10;the usual snap of a Lasgun down to a far less audible "click". Awareness Tests to hear shots made with a Las-Suppressed Las Weapon suffer an additional -20 penalty and can only be attempted at half the normal distance.">Las-Suppressor &#128712;</label>
 						<div class="spacing" style="width:52%"></div>
 					</div>
-					<div class="quickborder">
-						<label style="width:18%">- Cogitator -</label>
-						<div class="spacing" style="width:82%"></div>
-						<!-- end of line -->
+					<div class="weapCogitator">
 						<input type="checkbox" style="width:5%" name="attr_motionPredAttch" value="10"/>
 						<div class="spacing" style="width:1%"></div>
 						<label style="width:42%" class="help" title="Motion Predictor&#10;&#10;Upgrades: Any non-primitive ranged weapon capable of Semi-&#10;Auto or Full Auto fire.&#10;&#10;A complex target-tracking cogitator in this device is activated&#10;once the user has sighted the desired target. The Predictor then&#10;tracks the target, and when the trigger is pulled will chase the&#10;target with all the rounds in a clip in one long burst. A Motion&#10;Predictor adds a +10% bonus to Ballistic Skill Tests, but only&#10;functions when the weapon is fired on semi-automatic or fully&#10;automatic modes.">Motion Predictor &#128712;</label>
@@ -1342,10 +1403,22 @@
 						<label style="width:42%" class="help" title="Vox Operated&#10;&#10;Upgrades: Any non-primitive weapon.&#10;&#10;Specially coded vox receivers are integrated into the&#10;weapon’s trigger mechanisms, so that they user can&#10;operate it by voice if needed. Users can also operate&#10;the shot selector and switch firing modes where&#10;applicable merely by speaking the appropriate command.&#10;In the case of powered close combat weapons such&#10;as Power Swords or Chainswords, the activation mechanisms&#10;can be controlled by voice. For security reasons each&#10;receiver is usually keyed to just one voice pattern.&#10;Additionally, if the weapon is equipped with a fire&#10;selector, the operation of that upgrade may also be&#10;controlled simply by speaking aloud.">Vox-Operated &#128712;</label>
 						<!-- end of line -->
 					</div>
-				</div>
+					<div class="weapMisc">
+						<div class="spacing" style="width:4%"></div>
+						<label style="width:31%" class="help" title="Miscellaneous modifiers to weapon attack roll.">Misc. Attack Mod &#128712;</label>
+						<input name="attr_Rangedweaponmod" style="width:9%" type="number" value="0"/>
+						<div class="spacing" style="width:12%"></div>
+						<label style="width:31%" class="help" title="Miscellaneous modifiers to weapon damage roll.">Misc. Dmg Mod &#128712;</label>
+						<input name="attr_Rangedweapondmgmod" style="width:9%" type="number" value="0"/>
+						<div class="spacing" style="width:4%"></div>
+					</div>
+				</div><!-- Weapon Attachments Tab closing -->
+				<div class="weaponProps">
+					<div class="quickborder">
+						<!-- This is where the ranged weapon qualities section will be built -->
+					</div>
+				</div><!-- Weapon Properties Tab closing -->
 				<!-- end of line -->
-				<textarea style="height:65px" name="attr_rangedweaponspecial" placeholder="Special Qualities"></textarea>
-                <!-- end of line -->
             </div><!--hbody closing-->
 				<!-- end of line -->
                 <!-- Ammunition Management -->
@@ -1410,12 +1483,13 @@
 				<input type="checkbox" style="width:3%" name="attr_hiderangedweaponammo" value="1" class="arrow icon arrow1" title="Hide Ammo Types"></input>
                 <!-- end of line -->
             <div class="hbody1 quickborder">
-                <label style="width:100%">- Ammunition Types -</label>
+                <label style="width:34%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);text-align:center;">Ammunition Types</label>
+				<div class="spacing" style="width:66%"></div>
 				<!-- end of line -->
 				<!-- Start of Ammo 1 -->
 				<span class="iconBoltShell" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
-				<input name="attr_Ammo1name" style="width:33%" type="text" placeholder="Ammo Type 1" title="Ammunition Type 1"/>
+				<input name="attr_Ammo1name" style="width:32%" type="text" placeholder="Ammo Type 1" title="Ammunition Type 1"/>
 				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo1clipsize" style="width:8%" type="number" value="0"/>
@@ -1423,7 +1497,7 @@
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo1clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:19%">Spare Ammo</label>
+				<label style="width:20%">Spare Ammo</label>
 				<input name="attr_Ammo1totalrounds" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo1" value="1" class="arrow icon arrow3" title="Hide Ammo Types"></input>
@@ -1442,7 +1516,7 @@
 				<!-- Start of Ammo 2 -->
 				<span class="iconBoltShell1" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
-				<input name="attr_Ammo2name" style="width:33%" type="text" placeholder="Ammo Type 2" title="Ammunition Type 2"/>
+				<input name="attr_Ammo2name" style="width:32%" type="text" placeholder="Ammo Type 2" title="Ammunition Type 2"/>
 				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo2clipsize" style="width:8%" type="number" value="0"/>
@@ -1450,7 +1524,7 @@
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo2clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:19%">Spare Ammo</label>
+				<label style="width:20%">Spare Ammo</label>
 				<input name="attr_Ammo2totalrounds" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo2" value="1" class="arrow icon arrow4" title="Hide Ammo Types"></input>
@@ -1469,7 +1543,7 @@
 				<!-- Start of Ammo 3 -->
 				<span class="iconBoltShell2" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
-				<input name="attr_Ammo3name" style="width:33%" type="text" placeholder="Ammo Type 3" title="Ammunition Type 3"/>
+				<input name="attr_Ammo3name" style="width:32%" type="text" placeholder="Ammo Type 3" title="Ammunition Type 3"/>
 				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo3clipsize" style="width:8%" type="number" value="0"/>
@@ -1477,7 +1551,7 @@
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo3clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:19%">Spare Ammo</label>
+				<label style="width:20%">Spare Ammo</label>
 				<input name="attr_Ammo3totalrounds" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo3" value="1" class="arrow icon arrow5" title="Hide Ammo Types"></input>
@@ -1496,7 +1570,7 @@
 				<!-- Start of Ammo 4 -->
 				<span class="iconBoltShell3" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
-				<input name="attr_Ammo4name" style="width:33%" type="text" placeholder="Ammo Type 4" title="Ammunition Type 4"/>
+				<input name="attr_Ammo4name" style="width:32%" type="text" placeholder="Ammo Type 4" title="Ammunition Type 4"/>
 				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo4clipsize" style="width:8%" type="number" value="0"/>
@@ -1504,7 +1578,7 @@
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo4clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:19%">Spare Ammo</label>
+				<label style="width:20%">Spare Ammo</label>
 				<input name="attr_Ammo4totalrounds" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo4" value="1" class="arrow icon arrow6" title="Hide Ammo Types"></input>
@@ -1523,7 +1597,7 @@
 				<!-- Start of Ammo 5 -->
 				<span class="iconBoltShell4" style="width:6"/>
 				<div class="spacing" style="width:1%"></div>
-				<input name="attr_Ammo5name" style="width:33%" type="text" placeholder="Ammo Type 5" title="Ammunition Type 5"/>
+				<input name="attr_Ammo5name" style="width:32%" type="text" placeholder="Ammo Type 5" title="Ammunition Type 5"/>
 				<div class="spacing" style="width:2%"></div>
 				<label style="width:7%">Clip</label>
 				<input name="attr_Ammo5clipsize" style="width:8%" type="number" value="0"/>
@@ -1531,7 +1605,7 @@
 				<label style="width:2%">/</label>
 				<input name="attr_Ammo5clipmax" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
-				<label style="width:19%">Spare Ammo</label>
+				<label style="width:20%">Spare Ammo</label>
 				<input name="attr_Ammo5totalrounds" style="width:8%" type="number" value="0"/>
 				<div class="spacing" style="width:1%"></div>
 				<input type="checkbox" style="width:3%" name="attr_hideammo5" value="1" class="arrow icon arrow7" title="Hide Ammo Types"></input>
@@ -1549,6 +1623,7 @@
 				<!-- end of line -->
             </div><!--hbody1 closing-->
             </div>
+			</div>
         </fieldset>
         <div class="spacing" style="width:100%"></div>
         <h2>Melee Weapons &#9876;</h2>
@@ -5384,29 +5459,31 @@ on("change:repeating_rangedweapons:activeammo change:repeating_rangedweapons:Amm
 	"repeating_rangedweapons_Ammo5dmgmod",], function(values) {
 		let selectedAmmo = parseInt(values["repeating_rangedweapons_activeammo"]) || 0;
 		let dmgModValue;
+		let ammoTypeValue;
 		if (selectedAmmo == 0) {
 			dmgModValue = parseInt(values["repeating_rangedweapons_Ammo1dmgmod"]) || 0;
-			setAttrs({
-				repeating_rangedweapons_activeammo: 0,
-				repeating_rangedweapons_AmmodmgmodValue: dmgModValue
-			});
-		} else {
-			if (selectedAmmo == 1) {
-				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo1dmgmod"]) || 0;
-			} else if (selectedAmmo == 2) {
-				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo2dmgmod"]) || 0;
-			} else if (selectedAmmo == 3) {
-				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo3dmgmod"]) || 0;
-			} else if (selectedAmmo == 4) {
-				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo4dmgmod"]) || 0;
-			} else if (selectedAmmo == 5) {
-				dmgModValue = parseInt(values["repeating_rangedweapons_Ammo5dmgmod"]) || 0;
-			}
-			
-			setAttrs({
-				repeating_rangedweapons_AmmodmgmodValue: dmgModValue
-			});
+			ammoTypeValue = 1;
+		} else if (selectedAmmo == 1) {
+			dmgModValue = parseInt(values["repeating_rangedweapons_Ammo1dmgmod"]) || 0;
+			ammoTypeValue = 1;
+		} else if (selectedAmmo == 2) {
+			dmgModValue = parseInt(values["repeating_rangedweapons_Ammo2dmgmod"]) || 0;
+			ammoTypeValue = 2;
+		} else if (selectedAmmo == 3) {
+			dmgModValue = parseInt(values["repeating_rangedweapons_Ammo3dmgmod"]) || 0;
+			ammoTypeValue = 3;
+		} else if (selectedAmmo == 4) {
+			dmgModValue = parseInt(values["repeating_rangedweapons_Ammo4dmgmod"]) || 0;
+			ammoTypeValue = 4;
+		} else if (selectedAmmo == 5) {
+			dmgModValue = parseInt(values["repeating_rangedweapons_Ammo5dmgmod"]) || 0;
+			ammoTypeValue = 5;
 		}
+		
+		setAttrs({
+			repeating_rangedweapons_AmmodmgmodValue: dmgModValue,
+			repeating_rangedweapons_activeammo: ammoTypeValue
+		});
 	});
 });
 
