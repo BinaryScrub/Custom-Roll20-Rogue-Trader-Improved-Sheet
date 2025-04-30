@@ -1093,7 +1093,8 @@
         <h2>Ranged Weapons &#11216;</h2>
         <fieldset class="repeating_rangedweapons">
             <div class="quickborder">
-                <input name="attr_Rangedweaponname" style="width:61.5%; font-weight:bold" type="text" placeholder="Weapon Name" title="Weapon Name"/>
+                <div style="width:100%">
+				<input name="attr_Rangedweaponname" style="width:61.5%; font-weight:bold" type="text" placeholder="Weapon Name" title="Weapon Name"/>
                 <div class="spacing" style="width:0.5%"></div>
                 
 				
@@ -1126,9 +1127,16 @@
                 <button name="roll_rangedweaponspecial" type="roll" style="width:9%" title="Show Weapon Qualities in Chat"
                 value="@{gmroll}&{template:custom} {{name=**@{Rangedweaponname}**}} {{d1=Rng: **@{Rangedweaponrange}**&nbsp;&nbsp;RoF: **@{Rangedweaponsingle}/@{Rangedweaponsemi}/@{Rangedweaponfull}**&nbsp;&nbsp;Rld: **@{Rangedweaponreload}**}} {{desc=@{rangedweaponspecial} }}">
                     <label class="shct">R</label></button>
+				</div>
                 <!-- end of line -->
+				<div style="width:100%">
 				<input type="hidden" name="attr_Rangedweaponclass" class="weapontypeToggle"/>
-				<div class="weapColor" style="width:2%"></div>
+				<div class="spacing weapcolor" style="width:1.5%; display:inline-flex;">
+					<!--<div class="spacing" style="width:100%">
+						<input type="hidden" name="attr_Rangedweaponclass" class="weapontypeToggle"/>
+						<span class="weapcolor" style="width:100%; height:100%;"/>
+					</div>-->
+				</div>
 				<input type="hidden" name="attr_Rangedweaponclass" class="weapontypeToggle"/>
 				<!-- All Rows Below 1st -->
 				<div class="weapback" style="width:98%; display:inline-block;">
@@ -1142,7 +1150,7 @@
                     <option value="4" >Accurate Full (+30)</option>
                 </select>
 				<input type="hidden" name="attr_gunaimbonusvalue" value="0"/>
-                <div class="spacing" style="width:0.5%"></div>
+                <div class="spacing" style="width:0.5%; height: 100%;"></div>
                 <select name="attr_gunrangebonus" style="width:33%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Range Mod</option>
                     <option value="30" >P.Blank (+30)</option>
@@ -1644,6 +1652,17 @@
                 value="@{gmroll}&{template:custom} {{name=@{meleeweaponname}}} {{desc=@{meleeweaponspecial} }}">
                     <label class="shct">R</label></button>
                 <!-- end of line-->
+				<div style="width:100%">
+				<input type="hidden" name="attr_meleeweaponclass" value="Melee" class="weapontypeToggle"/>
+				<div class="spacing weapcolor" style="width:1.5%; display:inline-flex;">
+					<!--<div class="spacing" style="width:100%">
+						<input type="hidden" name="attr_Rangedweaponclass" class="weapontypeToggle"/>
+						<span class="weapcolor" style="width:100%; height:100%;"/>
+					</div>-->
+				</div>
+				<input type="hidden" name="attr_meleeweaponclass" value="Melee" class="weapontypeToggle"/>
+				<!-- All Rows Below 1st -->
+				<div class="weapback" style="width:98%; display:inline-block;">
                 <!-- Melee Attack Macro selectors 2024 version -->
                 <select name="attr_meleeaimbonus" style="width:35%">
                     <option disabled style="background:gray;font-weight:bold;color:white">Aim Bonus</option>
@@ -1660,24 +1679,23 @@
                     <option value="-10" >Guarded A. (-10)</option>
                     <option value="-20" >Called Shot (-20)</option>
                 </select>
-                <div class="spacing" style="width:3%"></div>
-                <button name="roll_meleeweaponstun" type="roll" style="width:13%" title="Rolls Weapon Skill -20 (Stun) + Modifiers"
+                <div class="spacing" style="width:2%"></div>
+                <button name="roll_meleeweaponstun" type="roll" style="width:13.5%" title="Rolls Weapon Skill -20 (Stun) + Modifiers"
                 value="@{gmroll}&{template:custom} {{name=**@{character_name} Strikes to Stun with @{meleeweaponname}**}} {{dosdof=[[(((  ([[(@{WeaponSkill}+@{meleeaimbonus}+@{meleeactionbonus}+(@{meleeweaponmod}) - 20 + ?{Modifier|0})]] - [[1d100cs1cf100]]) * 100 % 999 % 100  )))]] **Degrees**}} {{testtarget= $[[0]] }} {{d100= $[[1]] }} {{stun= }} {{hitloc= [[(1d10 + @{SB})]] Attacker Stun Damage vs Defender's Head&#10;1d10 + TB  + AP (Head)}}">
                     <label>Stun</label></button>
                 <div class="spacing" style="width:0.5%"></div>
-                <button name="roll_meleeweaponparry" type="roll" style="width:13%" title="Rolls Weapon Skill +/- Parry Modifiers"
+                <button name="roll_meleeweaponparry" type="roll" style="width:13.5%" title="Rolls Weapon Skill +/- Parry Modifiers"
                 value="@{gmroll}&{template:custom} {{name=**@{character_name} tries to Parry with @{meleeweaponname}**}} {{testtarget=[[(@{WeaponSkill}) + (@{meleeparrymod}) + (?{Other Modifiers|0}) ]] }} {{d100=[[1d100cs1cf100]] }} {{parry= }} {{d100h=@{meleeweaponpf}}}">
                     <label>Parry</label></button>
                 <!-- end of line-->
-				<label style="width:7%">Rng</label>
-				<input name="attr_meleerangext" style="width:8%" type="text" placeholder="Range" title="Melee Extended Range&#10;&#10;Mostly used by Whips"/>
-				<div class="spacing" style="width:1%"></div>
-                <input style="width:3%" type="checkbox" name="attr_meleeweaponpf" value="[[1d100cf<25cs>26]]" title="Check if this weapon has an active Power Field (Quality)"></input>
-                <div class="spacing" style="width:1%"></div>
-				<label style="width:8%">Dmg</label>
-				<input name="attr_meleeweapondamage" style="width:18%" type="text" placeholder="Damage" title="Damage Dice"/>
+				<label style="width:10%">Range</label>
+				<input name="attr_meleerangext" style="width:11%" type="text" placeholder="Range" title="Melee Extended Range&#10;&#10;Mostly used by Whips"/>
+                <div class="spacing" style="width:1.5%"></div>
+				<label style="width:12%">Damage</label>
 				<div class="spacing" style="width:0.5%"></div>
-				<label style="width:7.5%" title="Strength Bonus is already added to this weapon's Damage Roll">+SB</label>
+				<input name="attr_meleeweapondamage" style="width:20.5%" type="text" placeholder="Damage" title="Damage Dice"/>
+				<div class="spacing" style="width:0.5%"></div>
+				<label style="width:6.5%" title="Strength Bonus is already added to this weapon's Damage Roll">+SB</label>
 				<select name="attr_meleeweapontype" style="width:10%">
 					<option disabled style="background:gray;font-weight:bold;color:white">Damage Type&nbsp;</option>
 					<option value="Energy">(E)&#8195;Energy</option>
@@ -1685,35 +1703,47 @@
 					<option value="Impact">(I)&#8195;Impact</option>
 					<option value="Rending" selected>(R)&#8195;Rending</option>
 				</select>
-				<div class="spacing" style="width:1%"></div>
-				<label style="width:7%">Pen</label>
+				<div class="spacing" style="width:1.5%"></div>
+				<label style="width:17%">Pen.Rating</label>
 				<input name="attr_meleeweaponpen" style="width:6%" type="number" value="0" title="Penetration"/>
-				<label style="width:11%" class="help" title="Fixed Test modifiers for Parry roll&#10;&#10;Example: Balanced Quality (+10)">Mod &#128712;</label>
-                <input name="attr_meleeparrymod" style="width:6%" type="number" value="0"/>
                 <input style="width:3%" type="checkbox" name="attr_hidemeleeweaponspecial" value="1" class="arrow icon" title="Hide Special Qualities"></input>
                 <!-- end of line-->
                 <div class="hbody quickborder">
 					<label style="width:34%; border:solid; border-width:thin; background-color:rgb(255 182 0 / 17%);text-align:center;">Weapon Qualities</label>
-					<label style="width:11%" class="help" title="Fixed Test modifiers for Attack roll&#10;&#10;Example: Best Craftsmanship (+10)">Mod &#128712;</label>
-					<input name="attr_meleeweaponmod" style="width:6%" type="number" value="0"/>
-                    <div class="spacing" style="width:1%"></div>
-                    <select name="attr_meleeweaponcraft" style="width:17%">
-                        <option disabled style="background:gray;font-weight:bold;color:white">Craftsmanship&nbsp;</option>
+                    <div class="spacing" style="width:66%"></div>
+					<!-- end of line-->
+					<label style="width:22.5%">Special Quality</label>
+					<div class="spacing" style="width:0.5%"></div>
+                    <select name="attr_meleeweaponquality" style="width:18%">
+                        <option selected value="{{d1=[[@{meleeweapondamage}+@{SB}]] @{meleeweapontype} Damage!}}">None</option>
+                        <option value="{{d1=[[{@{meleeweapondamage}+@{SB}+1d10}dl1]] Tearing @{meleeweapontype} Damage!}}">Tearing</option>
+                        <option disabled style="background:gray;font-weight:bold;color:white">See WIKI for Proven Quality</option>
+                    </select>
+					<div class="spacing" style="width:3%"></div>
+					<label style="width:22%">Craftsmanship</label>
+					<div class="spacing" style="width:0.5%"></div>
+                    <select name="attr_meleeweaponcraft" style="width:20%">
                         <option value="Poor">Poor</option>
                         <option value="Common" selected>Common</option>
                         <option value="Good">Good</option>
                         <option value="Best">Best</option>
                     </select>
-                    <div class="spacing" style="width:1%"></div>
-                    <select name="attr_meleeweaponquality" style="width:20%">
-                        <option disabled style="background:gray;font-weight:bold;color:white">Weapon Quality</option>
-                        <option selected value="{{d1=[[@{meleeweapondamage}+@{SB}]] @{meleeweapontype} Damage!}}">No Special Quality</option>
-                        <option value="{{d1=[[{@{meleeweapondamage}+@{SB}+1d10}dl1]] Tearing @{meleeweapontype} Damage!}}">Tearing</option>
-                        <option disabled style="background:gray;font-weight:bold;color:white">See WIKI for Proven Quality</option>
-                    </select>
+					<div class="spacing" style="width:13.5%"></div>
+					
                     <!-- end of line-->
+					<label style="width:18.5%" class="help" title="Fixed Test modifiers for Attack roll&#10;&#10;Example: Best Craftsmanship (+10)">Attack Mod &#128712;</label>
+					<input name="attr_meleeweaponmod" style="width:6%" type="number" value="0"/>
+					<div class="spacing" style="width:1%"></div>
+					<label style="width:17.5%" class="help" title="Fixed Test modifiers for Parry roll&#10;&#10;Example: Balanced Quality (+10)">Parry Mod &#128712;</label>
+					<input name="attr_meleeparrymod" style="width:6%" type="number" value="0"/>
+					<div class="spacing" style="width:1%"></div>
+					<label style="width:18.5%">Power Field</label>
+					<input style="width:3%" type="checkbox" name="attr_meleeweaponpf" value="[[1d100cf<25cs>26]]" title="Check if this weapon has an active Power Field (Quality)"></input>
+					<!-- end of line-->
                     <textarea style="height:65px" name="attr_meleeweaponspecial" placeholder="Special Qualities"></textarea>
                 </div><!--hbody closing div -->
+				</div>
+				</div>
             </div>
         </fieldset>
         <div>

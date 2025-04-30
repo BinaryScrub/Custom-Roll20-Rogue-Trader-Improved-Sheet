@@ -589,64 +589,84 @@
 .charsheet .rti .weapontypeToggle[value="Melee"] ~ div.weapback {
 	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/136f712d8fab699c054b47a59fdaac45743f59af/images/icons/General/sword-01-faded%20rotated.svg?sanitize=true");
 	background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 66%;
 }
 
 /* Background colors for Weapon strips */
-.charsheet .rti .weapontypeToggle[value="Thrown"] ~ div.weapColor {
-	background-color: rgb(218, 165, 32, 1.0);
-	background-blend-mode: multiply;
-	display: inline-block;
-    width: auto;
-    height: auto;
-    vertical-align: middle;
-	margin: 0;
-    padding: 0;
-    border: 0;
+.charsheet .rti .weapontypeToggle[value="Thrown"] ~ span.weapcolor,
+.charsheet .rti .weapontypeToggle[value="Thrown"] ~ div.weapcolor {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/refs/heads/main/images/colors/MeleeStrip.png");
+    background-size: cover;
+	background-repeat: repeat;
+	background-position: top;
+	border: 1px solid #AAAAAA;
+	position: relative;
+	bottom: 83px;
+	right: 3px;
+    padding: 5.5% 2px 20.5% 2px;
+    margin-bottom: -19.55%;
+	margin-top: 0.5%;
+	width:100%;
 }
-.charsheet .rti .weapontypeToggle[value="Pistol"] ~ div.weapColor {
-	background-color: rgb(218, 165, 32, 1.0);
-	background-blend-mode: multiply;
-	display: inline-block;
-    width: auto;
-    height: auto;
-    vertical-align: middle;
-	margin: 0;
-    padding: 0;
-    border: 0;
+.charsheet .rti .weapontypeToggle[value="Pistol"] ~ span.weapcolor,
+.charsheet .rti .weapontypeToggle[value="Pistol"] ~ div.weapcolor {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/refs/heads/main/images/colors/PistolStrip.png");
+    background-size: cover;
+	background-repeat: repeat;
+	background-position: top;
+	border: 1px solid #AAAAAA;
+	position: relative;
+	bottom: 83px;
+	right: 3px;
+    padding: 5.5% 2px 20.5% 2px;
+    margin-bottom: -19.55%;
+	margin-top: 0.5%;
+	width:100%;
 }
-.charsheet .rti .weapontypeToggle[value="Basic"] ~ div.weapColor {
-	background-color: rgb(218, 165, 32, 1.0);
-	background-blend-mode: multiply;
-	display: inline-block;
-    width: auto;
-    height: auto;
-    vertical-align: middle;
-	margin: 0;
-    padding: 0;
-    border: 0;
+.charsheet .rti .weapontypeToggle[value="Basic"] ~ span.weapcolor,
+.charsheet .rti .weapontypeToggle[value="Basic"] ~ div.weapcolor {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/refs/heads/main/images/colors/BasicStrip.png");
+    background-size: cover;
+	background-repeat: repeat;
+	background-position: top;
+	border: 1px solid #AAAAAA;
+	position: relative;
+	bottom: 83px;
+	right: 3px;
+    padding: 5.5% 2px 20.5% 2px;
+    margin-bottom: -19.55%;
+	margin-top: 0.5%;
+	width:100%;
 }
-.charsheet .rti .weapontypeToggle[value="Heavy"] ~ div.weapColor {
-	background-color: rgb(218, 165, 32, 1.0);
-	background-blend-mode: multiply;
-	display: inline-block;
-    width: auto;
-    height: auto;
-    vertical-align: middle;
-	margin: 0;
-    padding: 0;
-    border: 0;
+.charsheet .rti .weapontypeToggle[value="Heavy"] ~ span.weapcolor,
+.charsheet .rti .weapontypeToggle[value="Heavy"] ~ div.weapcolor {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/refs/heads/main/images/colors/HeavyStrip.png");
+    background-size: cover;
+	background-repeat: repeat;
+	background-position: top;
+	border: 1px solid #AAAAAA;
+	position: relative;
+	bottom: 83px;
+	right: 3px;
+    padding: 5.5% 2px 20.5% 2px;
+    margin-bottom: -19.55%;
+	margin-top: 0.5%;
+	width:100%;
 }
-.charsheet .rti .weapontypeToggle[value="Melee"] ~ div.weapColor {
-	background-color: rgb(218, 165, 32, 1.0);
-	background-blend-mode: multiply;
-	display: inline-block;
-    width: auto;
-    height: auto;
-    vertical-align: middle;
-	margin: 0;
-    padding: 0;
-    border: 0;
+.charsheet .rti .weapontypeToggle[value="Melee"] ~ span.weapcolor,
+.charsheet .rti .weapontypeToggle[value="Melee"] ~ div.weapcolor {
+	background: url("https://raw.githubusercontent.com/BinaryScrub/Custom-Roll20-Rogue-Trader-Improved-Sheet/refs/heads/main/images/colors/ThrownStrip.png");
+    background-size: cover;
+	background-repeat: repeat;
+	background-position: top;
+	border: 1px solid #AAAAAA;
+	position: relative;
+	bottom: 57px;
+	right: 3px;
+    padding: 2px 2px 12.5% 2px;
+    margin-bottom: -19.55%;
+	margin-top: 0.5%;
+	width:100%;
 }
 
 /* Disabled readonly fields */{}
